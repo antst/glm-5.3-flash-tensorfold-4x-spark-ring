@@ -1,0 +1,183 @@
+{
+  "schema": "spark-ring-public-sparkdash-summary/v1",
+  "method": "SparkDash decode sum(completion_tokens-1)/(latest last content - earliest first content); temperature0/top_p1, thinkingoff, fixed400 tokens, 3 repetitions except P8single one probe",
+  "current_profile": {
+    "context": 1048576,
+    "parallel": 8,
+    "verify_window": 64,
+    "kept_prompt_states": 32,
+    "default_reply_tokens": 32768,
+    "extra_cache_gib": 24,
+    "memory_reserve_gib": 20
+  },
+  "single_prose_p8": [
+    {
+      "kind": "prose",
+      "concurrency": 1,
+      "sparkdash_aggregate_decode_tokens_per_second_median": 88.72328099299315,
+      "decode_range": [
+        88.72328099299315,
+        88.72328099299315
+      ],
+      "aggregate_end_to_end_tokens_per_second_median": 86.74297163002555,
+      "ttft_median_seconds": 0.11143898963928223,
+      "mia_published_tp2_decode_tokens_per_second": null,
+      "mia_baseline_serving_lanes": null,
+      "mia_published_tp3_decode_tokens_per_second": 65.7,
+      "percent_difference_from_published_tp3": 35.04304565143555,
+      "ratio_to_published_tp2": null,
+      "percent_difference_from_published_tp2": null
+    }
+  ],
+  "p4_rows": [
+    {
+      "kind": "prose",
+      "concurrency": 1,
+      "sparkdash_aggregate_decode_tokens_per_second_median": 88.8580741028444,
+      "decode_range": [
+        88.83551591106398,
+        89.0327707705127
+      ],
+      "aggregate_end_to_end_tokens_per_second_median": 86.88448875407205,
+      "ttft_median_seconds": 0.11238868162035942,
+      "mia_published_tp2_decode_tokens_per_second": 60.4,
+      "ratio_to_published_tp2": 1.4711601672656358,
+      "percent_difference_from_published_tp2": 47.11601672656358
+    },
+    {
+      "kind": "prose",
+      "concurrency": 2,
+      "sparkdash_aggregate_decode_tokens_per_second_median": 123.40595164301715,
+      "decode_range": [
+        122.40018675963495,
+        124.23754898615971
+      ],
+      "aggregate_end_to_end_tokens_per_second_median": 120.68338336168318,
+      "ttft_median_seconds": 0.1636272929608822,
+      "mia_published_tp2_decode_tokens_per_second": 79.2,
+      "ratio_to_published_tp2": 1.5581559550886004,
+      "percent_difference_from_published_tp2": 55.81559550886004
+    },
+    {
+      "kind": "prose",
+      "concurrency": 4,
+      "sparkdash_aggregate_decode_tokens_per_second_median": 158.80106814601817,
+      "decode_range": [
+        158.71450564475714,
+        158.9619252452524
+      ],
+      "aggregate_end_to_end_tokens_per_second_median": 157.20741753112705,
+      "ttft_median_seconds": 0.3045054208487272,
+      "mia_published_tp2_decode_tokens_per_second": 108.8,
+      "ratio_to_published_tp2": 1.4595686410479611,
+      "percent_difference_from_published_tp2": 45.95686410479611
+    },
+    {
+      "kind": "structured",
+      "concurrency": 1,
+      "sparkdash_aggregate_decode_tokens_per_second_median": 169.77844954373032,
+      "decode_range": [
+        169.62856636822346,
+        170.1607396739254
+      ],
+      "aggregate_end_to_end_tokens_per_second_median": 163.16479239026498,
+      "ttft_median_seconds": 0.10066630318760872,
+      "mia_published_tp2_decode_tokens_per_second": 114.7,
+      "ratio_to_published_tp2": 1.480195724008111,
+      "percent_difference_from_published_tp2": 48.01957240081109
+    },
+    {
+      "kind": "structured",
+      "concurrency": 2,
+      "sparkdash_aggregate_decode_tokens_per_second_median": 245.91060962911203,
+      "decode_range": [
+        245.15637833668367,
+        246.3139586316309
+      ],
+      "aggregate_end_to_end_tokens_per_second_median": 237.87354974703098,
+      "ttft_median_seconds": 0.1659392062574625,
+      "mia_published_tp2_decode_tokens_per_second": 147.6,
+      "ratio_to_published_tp2": 1.6660610408476426,
+      "percent_difference_from_published_tp2": 66.60610408476427
+    },
+    {
+      "kind": "structured",
+      "concurrency": 4,
+      "sparkdash_aggregate_decode_tokens_per_second_median": 375.27652879294516,
+      "decode_range": [
+        374.9776327655758,
+        376.03789901228316
+      ],
+      "aggregate_end_to_end_tokens_per_second_median": 366.27191355880177,
+      "ttft_median_seconds": 0.28168731555342674,
+      "mia_published_tp2_decode_tokens_per_second": 227.9,
+      "ratio_to_published_tp2": 1.6466719122112556,
+      "percent_difference_from_published_tp2": 64.66719122112556
+    }
+  ],
+  "p8_c8_rows": [
+    {
+      "kind": "prose",
+      "concurrency": 8,
+      "sparkdash_aggregate_decode_tokens_per_second_median": 215.7148264223055,
+      "decode_range": [
+        214.49978916575634,
+        216.08188703374216
+      ],
+      "aggregate_end_to_end_tokens_per_second_median": 214.28424692458347,
+      "ttft_median_seconds": 0.4368121698498726,
+      "mia_published_tp2_decode_tokens_per_second": 130.8,
+      "mia_baseline_serving_lanes": 8,
+      "mia_published_tp3_decode_tokens_per_second": 166.0,
+      "percent_difference_from_published_tp3": 29.948690615846687,
+      "ratio_to_published_tp2": 1.6491959206598277,
+      "percent_difference_from_published_tp2": 64.91959206598277
+    },
+    {
+      "kind": "code",
+      "concurrency": 8,
+      "sparkdash_aggregate_decode_tokens_per_second_median": 290.7455224654342,
+      "decode_range": [
+        286.9519667666314,
+        291.2290077763395
+      ],
+      "aggregate_end_to_end_tokens_per_second_median": 287.4932643772911,
+      "ttft_median_seconds": 0.5678462479263544,
+      "mia_published_tp2_decode_tokens_per_second": 167.0,
+      "mia_baseline_serving_lanes": 8,
+      "mia_published_tp3_decode_tokens_per_second": 211.5,
+      "percent_difference_from_published_tp3": 37.46833213495706,
+      "ratio_to_published_tp2": 1.7409911524876298,
+      "percent_difference_from_published_tp2": 74.09911524876298
+    },
+    {
+      "kind": "structured",
+      "concurrency": 8,
+      "sparkdash_aggregate_decode_tokens_per_second_median": 537.4867239431126,
+      "decode_range": [
+        536.7284018656089,
+        538.6185655673183
+      ],
+      "aggregate_end_to_end_tokens_per_second_median": 514.1537933717151,
+      "ttft_median_seconds": 0.28085579723119736,
+      "mia_published_tp2_decode_tokens_per_second": null,
+      "mia_baseline_serving_lanes": null,
+      "mia_published_tp3_decode_tokens_per_second": null,
+      "percent_difference_from_published_tp3": null,
+      "ratio_to_published_tp2": null,
+      "percent_difference_from_published_tp2": null
+    }
+  ],
+  "raw_source_sha256": {
+    "20261009T2311-sparkdash-1m": "984adfe463534499dbe1a471f1944bd9836ff9a7afc7c4b608b30a882a5184cb",
+    "20261009T2325-sparkdash-1m-p8-c8": "816a869be0d5dcf4b3be8b6e264b388a4589289f390b63fa8b94bdc523e06ef2",
+    "20261009T2328-sparkdash-p8-single-check": "a89bd73ef3d909d41f04ce8fdf789022f2e41672d1652c02f19315a02a973ddc"
+  },
+  "limits": [
+    "Published Mia TP2 uses2200MHz cap; TP3 per-boot cap unverified; ours clocks/power unchanged",
+    "Original Mia raw run cap unavailable;400 is harnessdefault",
+    "Current native1M admission tested with26333tokeninput+32768reply allowance, actualshortreply; full1Mprompt/eightfullwindows untested",
+    "Sharedpool4569088tokens; not8separate1M allocations",
+    "Not comparable to RigMark completed-workload results; structuredcounting differs from RigMarkJSON"
+  ]
+}

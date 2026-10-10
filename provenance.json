@@ -1,0 +1,44 @@
+{
+  "schema": "spark-ring-public-provenance/v1",
+  "image": "ghcr.io/miaai-lab/glm-5.3-flash-exl3-2x-dgx-sparks-tensorfold@sha256:bc34d7d63f978cf601f42863b284bc95a567c50c10e9adb0866a635be568bf5f",
+  "engine": "TensorFold v0.6.0 + Mia96 patches; image already supports TP4",
+  "mia_recipe_revision": "7d42f905388a8d7fa91e2dc9458e0a4a68001540",
+  "nccl_base_revision": "73cf112295c33aee2b895f329f592f2a9b4b0f97",
+  "nccl_version": "2.30.7",
+  "sparkring_revision": "6d27dd10a9f97da21278ae504ea6235f8634f303",
+  "nccl_patch_sha256": "8e2b8715d62d2b07a74caca3778da0eff2e7b54caf8a184bb728f179a5d1eba4",
+  "nccl_patched_tree": "01e0e8a3a821ebc92a4d1333981d18ed4eeb96e4",
+  "original_qualified_binary_sha256": "aca99264fe2a474e0f7aa964a3c3ef65254ad8f8d375de76631a7eb973c15041",
+  "original_qualified_binary_bytes": 61420176,
+  "rigmark_revision": "d8353e93b274e8d880ab14a5df2a55c87d7bee16",
+  "rigmark_prompts_sha256": "0c3ac4015813af6a1b967659bd2289990fde895a5e43ae065b894d1e1f909ecb",
+  "models": [
+    {
+      "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
+      "revision": "078455ffe6472f9a52fbc1139f58b9db2881b25c",
+      "directory": "glm53-exl3"
+    },
+    {
+      "repo": "incoai/GLM-5.3-Flash-DFlash2",
+      "revision": "bf582e4eacc1810f76656d1811693ff6c6737d2a",
+      "directory": "dflash2"
+    }
+  ],
+  "defaults": {
+    "context": 1048576,
+    "parallel": 8,
+    "verify_window": 64,
+    "kept_prompt_states": 32,
+    "default_reply_tokens": 32768,
+    "extra_cache_gib": 24,
+    "memory_reserve_gib": 20
+  },
+  "measured_pool_tokens": 4569088,
+  "qualification_policy": "Published historical results are not qualification receipts for another cluster. Rebuild and qualify locally before start.",
+  "original_native_build_toolchain": {
+    "cuda_nvcc": "13.0.88",
+    "gcc": "13.3.0",
+    "architecture": "ARM aarch64",
+    "gpu_target": "sm_121"
+  }
+}

@@ -1,0 +1,259 @@
+{
+  "audited_at_utc": "2026-10-09T23:58:49.834127+00:00",
+  "completion_checks": {
+    "actual_request_counts": {
+      "concurrency": 21,
+      "decode": 15,
+      "prefill": 18
+    },
+    "all_decode_gates_passed": true,
+    "decode_gates": {
+      "code": {
+        "passed": 5,
+        "total": 5
+      },
+      "prose": {
+        "passed": 5,
+        "total": 5
+      },
+      "structured": {
+        "passed": 5,
+        "total": 5
+      }
+    },
+    "expected_requests": 54,
+    "external_requests_detected_by_wrapper_count": false,
+    "total_receipt_requests": 54
+  },
+  "execution_provenance": {
+    "executed_wrapper": {
+      "artifact_basename": "runner-executed.py",
+      "bytes": 4743,
+      "note": "Preserved original executed wrapper, not the subsequently updated public helper.",
+      "path": "rigmark-runner-executed.py",
+      "sha256": "539951eebb08ae19f18f203fa83e820ae2af2a2058964fe9f2b52ddd9855364b"
+    },
+    "original_operator_command": {
+      "artifact_basename": "operator-command.json",
+      "note": "Digest binds the original command artifact; private endpoint and operator filesystem paths are not reproduced in this public proof.",
+      "sha256": "8dab5034319f39f3511bbf77f11ec620ec080993b3e3d29753e52a7ee336ff0a"
+    },
+    "wrapper_audit": {
+      "active_after": 0,
+      "artifact_basename": "run-audit.json",
+      "benchmark_revision": "d8353e93b274e8d880ab14a5df2a55c87d7bee16",
+      "bytes": 629,
+      "external_requests_detected": false,
+      "receipt_requests": 54,
+      "requests_after": 179,
+      "requests_before": 125,
+      "requests_delta": 54,
+      "return_code": 0,
+      "sha256": "e77b3202e1d141937ff173df08a64998fb539db8d006108e06858ddfa80b3e31",
+      "source_clean_preflight": true
+    }
+  },
+  "protocol_binding": {
+    "comparison_id": "2026-09-12-nccl-patch-ab-v1",
+    "prompts_sha256": "0c3ac4015813af6a1b967659bd2289990fde895a5e43ae065b894d1e1f909ecb",
+    "prompts_version": "1.0.0",
+    "settings": {
+      "concurrency": [
+        1,
+        2,
+        4
+      ],
+      "concurrency_runs": 3,
+      "concurrency_tokens": 256,
+      "concurrency_workload": "code",
+      "decode_tokens": 4096,
+      "extra_body": {
+        "chat_template_kwargs": {
+          "reasoning_effort": "low"
+        }
+      },
+      "prefill_depths": [
+        8192,
+        32768,
+        65536
+      ],
+      "prefill_runs": 3,
+      "runs": 5,
+      "seed": 20260912,
+      "temperature": 0.0,
+      "top_p": 1.0
+    },
+    "version": "1.0.0"
+  },
+  "receipt": {
+    "bytes": 143917,
+    "finished_at": "2026-10-09T23:56:12.721332+00:00",
+    "path": "rigmark-result.json",
+    "reported_protocol_identity": {
+      "prompts_sha256": "0c3ac4015813af6a1b967659bd2289990fde895a5e43ae065b894d1e1f909ecb",
+      "prompts_version": "1.0.0",
+      "repository_dirty": null,
+      "repository_revision": "unknown",
+      "repository_source": "unknown",
+      "version": "1.0.0"
+    },
+    "sha256": "d4c953465b9db4eaeaf46a40fa128aa0f3f4e077078a57ef04846ffc279b0200",
+    "started_at": "2026-10-09T23:49:16.217393+00:00"
+  },
+  "schema": "spark-ring-rigmark-source-proof/v1",
+  "scope": "Supplementary provenance for the unmodified completed RigMark receipt; no benchmark repeated and no measurement or protocol fields rewritten.",
+  "source": {
+    "clean_worktree_verified_after_run": true,
+    "files": [
+      {
+        "bytes": 41,
+        "path": ".git_archival.txt",
+        "sha256": "79ff4022891955e8b4c5768f8e8644a19e548bc953a17809d88c2caefa06da62"
+      },
+      {
+        "bytes": 31,
+        "path": ".gitattributes",
+        "sha256": "67b72b7c43e31bc5455e4c0a82c80d5186282ea14b7c64b65a2dfefadb906e63"
+      },
+      {
+        "bytes": 356,
+        "path": ".github/workflows/check.yml",
+        "sha256": "46a805dcc9c064edd9cc052867258d99229b3b02323ac7b661ca20603e0114eb"
+      },
+      {
+        "bytes": 113,
+        "path": ".gitignore",
+        "sha256": "1074dfe8c1aa8e55ffadee8a4771aa730705463c5a9893afeddbb5fd44158201"
+      },
+      {
+        "bytes": 1084,
+        "path": "LICENSE",
+        "sha256": "19058b602fc9af61d619420a322be1deeb52c4a2da78a6ace1120c87a5e0b044"
+      },
+      {
+        "bytes": 1973,
+        "path": "METADATA.md",
+        "sha256": "3d5710f45bc49deea97a3fe00c96567d598526cf85a8683fd1a7b7ccfdcad6c8"
+      },
+      {
+        "bytes": 4802,
+        "path": "PROTOCOL.md",
+        "sha256": "48edc18eaab0bd5a2126efa433c19088a1b25cc4db9bee38d10f444a24e30c16"
+      },
+      {
+        "bytes": 9336,
+        "path": "README.md",
+        "sha256": "6740de9104fc28fa24b3bb572b775afb48e1890be538ae05db18d15a267e3169"
+      },
+      {
+        "bytes": 3725,
+        "path": "RESULTS.md",
+        "sha256": "949e00a90b3f0351b749eb06a5af6a046d3598fb01897d573dc4e70408b60283"
+      },
+      {
+        "bytes": 26133,
+        "path": "bench.py",
+        "sha256": "087010be072656a1d6181b84b39d32b0914d5403aa0a021e5d41147690ca6c39"
+      },
+      {
+        "bytes": 10246,
+        "path": "compare.py",
+        "sha256": "44df0b6881e5bd9330eedb611bbe6d22414205f29b554603751cfd40c8b711b2"
+      },
+      {
+        "bytes": 2774,
+        "path": "configure.py",
+        "sha256": "a30bb55ab24a3d5ff0be424963061d6ee02abe7f4e40421a9514e8ba7ceaecf7"
+      },
+      {
+        "bytes": 1970973,
+        "path": "docs/images/rigmark-hero.png",
+        "sha256": "5569101dbc55a8ea4083612801db60a7d28d5aeac9bff66e846b5feea06deb34"
+      },
+      {
+        "bytes": 848,
+        "path": "metadata.example.json",
+        "sha256": "9043aded97088af70abe752a501652525745d074007025373e3cd3fdaea1921d"
+      },
+      {
+        "bytes": 1340,
+        "path": "prompts.json",
+        "sha256": "0c3ac4015813af6a1b967659bd2289990fde895a5e43ae065b894d1e1f909ecb"
+      },
+      {
+        "bytes": 6602,
+        "path": "report.py",
+        "sha256": "867eba53a8b798919c73929954bc22e352c268a6979a1ab78e2d3320fcfa8dd2"
+      },
+      {
+        "bytes": 3609,
+        "path": "results/reference/ds4f-0731-nvfp4-tp2-low.card.txt",
+        "sha256": "7afdb06d626b61c2dfc9ba0f5af1621519d12c979f88f8d74c59c378d3bb8c7a"
+      },
+      {
+        "bytes": 111769,
+        "path": "results/reference/ds4f-0731-nvfp4-tp2-low.json",
+        "sha256": "4749832195b34dc9e0320c00aa829abc833ec17b16ff131d8ed8bafb54561b9e"
+      },
+      {
+        "bytes": 3609,
+        "path": "results/reference/glm53-libert-nvfp4-tp2-low.card.txt",
+        "sha256": "4bc18fcc6bf84f71975d1790e3013fc3d0dba4e3c141b823d5eb413d0597dc06"
+      },
+      {
+        "bytes": 141902,
+        "path": "results/reference/glm53-libert-nvfp4-tp2-low.json",
+        "sha256": "d117be1f778c55fab5a6831eb766f802fc4be5f21d0aaa0df2fb3b25e556c16f"
+      },
+      {
+        "bytes": 3609,
+        "path": "results/reference/qwen38-27b-fp8-rtxpro6000-low.card.txt",
+        "sha256": "5f9da5e565bf1393239b6cbc00e003a0867ddbf91215a601dae7fcd991da00a4"
+      },
+      {
+        "bytes": 109948,
+        "path": "results/reference/qwen38-27b-fp8-rtxpro6000-low.json",
+        "sha256": "604ea2c48107a69fe4d5bf15747c933bcc61f7c84e145a6a2b10cb8c4160b445"
+      },
+      {
+        "bytes": 700,
+        "path": "rigmark",
+        "sha256": "be6198fbd682a370b5b407032851d3f674d0f7a3b9b72c956d56e9288923a6bf"
+      },
+      {
+        "bytes": 4023,
+        "path": "tests/test_bench.py",
+        "sha256": "388391ede82fc45017c78363dda7875ebf835586d4306f6a386972d28ce44f2c"
+      },
+      {
+        "bytes": 943,
+        "path": "tests/test_compare.py",
+        "sha256": "a02f640ab5b7ccec0afb840eedad4dc065cc6173574f8e60f5591b9e2d7f62a8"
+      },
+      {
+        "bytes": 407,
+        "path": "tests/test_configure.py",
+        "sha256": "8875179acf54a909368a3ef01a43f0ec73b25cab97aa50f2b0290d96771f4623"
+      },
+      {
+        "bytes": 2097,
+        "path": "tests/test_report.py",
+        "sha256": "8f2f369ca04e4e99431b6b2007b8393098d6daad01fad29d8339029dda7b31f3"
+      }
+    ],
+    "git_tree": "86f6f3184c0fe0972171d0681c8ac40f771a3cd3",
+    "porcelain_status": "",
+    "repository": "https://github.com/alexellis/rigmark",
+    "revision": "d8353e93b274e8d880ab14a5df2a55c87d7bee16",
+    "tracked_file_count": 27,
+    "tracked_files_equal_committed_blobs": true
+  },
+  "unknown_identity_explanation": {
+    "future_helper_fix": "The public helper now supplies safe.directory only in the benchmark child environment using GIT_CONFIG_COUNT/KEY/VALUE. No upstream source or global Git configuration is changed, and the completed benchmark was not repeated.",
+    "observed_failure": "Git rev-parse without a safe.directory exception exits 128 with detected dubious ownership. The NFS checkout is owned by uid65534 (nobody), rather than the operator.",
+    "original_wrapper_behavior": "The executed wrapper verified the pinned clean checkout using a per-command git -c safe.directory exception. That option applied only to its own Git subprocesses and did not reach the upstream child Git identity calls.",
+    "receipt_preserved": true,
+    "supplementary_evidence_limits": "The wrapper audit records its enforced preflight pin/clean check. The complete tracked-file hash inventory and clean Git status were independently observed after the run; no at-execution source hash inventory was recorded.",
+    "upstream_behavior": "Pinned bench.py git_identity() calls Git without safe.directory, suppresses stderr, and falls back to unknown/null/unknown when Git fails and archive identity is unavailable."
+  }
+}

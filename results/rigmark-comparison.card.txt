@@ -1,0 +1,22 @@
+╔══════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ R I G M A R K  //  MATCHED A/B  //  REAL OUTPUT. RECEIPTS INCLUDED.                                  ║
+║ SAME PROTOCOL • PROMPTS • REQUEST BODY • GENERATION LIMITS                                           ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ LEFT   glm53-tp4-release-v0.0.1                                                                      ║
+║ RIGHT  glm53-exl3-tensorfold-tp4-low                                                                 ║
+║ BENCH  left git:d8353e93b274 clean                                                                   ║
+║        right git:unknown unknown                                                                     ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ METRIC                             LEFT               RIGHT    RIGHT/LEFT                            ║
+║ CODE DECODE                        71.3               111.7         1.57×                            ║
+║ PROSE DECODE                       31.2                62.9         2.02×                            ║
+║ STRUCTURED CEILING                109.2               157.1         1.44×                            ║
+║ 64K COLD PREFILL                1,964.7             1,816.4         0.92×                            ║
+║ 64K WARM REPLAY                36,074.9           983,832.0        27.27×                            ║
+║ C4 SHORT CODE LOAD                110.8               162.3         1.46×                            ║
+╠══════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ OUTPUT GATES  left 15/15  •  right 15/15                                                             ║
+║ RECEIPTS  7f9c9cc1f617f5e1…  •  d4c953465b9db4ea…                                                    ║
+║ SCREENSHOT → POST TO X • LINK BOTH JSON RECEIPTS • #RigMark                                          ║
+║ github.com/alexellis/rigmark                                                                         ║
+╚══════════════════════════════════════════════════════════════════════════════════════════════════════╝

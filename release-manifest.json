@@ -1,0 +1,169 @@
+{
+  "files": {
+    ".gitattributes": {
+      "bytes": 371,
+      "sha256": "5c02b5e8710fde2a7b0c650af3047c41321cfa26326e3cbd0d2d6f0bb7bcd4f0"
+    },
+    ".github/workflows/check.yml": {
+      "bytes": 442,
+      "sha256": "2d04adf5cf3a5486d6c721cb59920de9724e54dfedcd2a57c2a872046fe0cff9"
+    },
+    ".gitignore": {
+      "bytes": 270,
+      "sha256": "3e0b06f481a7947a57775888bda2a81f5944a04fff66fce477c147e9a08b5132"
+    },
+    "CREDITS.md": {
+      "bytes": 3108,
+      "sha256": "7453b46cd1e4b037d7d5580b5aaf9576973e12f53daa267c0c31ae292293cc79"
+    },
+    "LICENSE": {
+      "bytes": 1076,
+      "sha256": "3b42432f52e018d9947f3c7276c3a5754279b8bb9a308b7dec064c2b808d44eb"
+    },
+    "README.md": {
+      "bytes": 12953,
+      "sha256": "5717f77d6cb6c6f5f64d6b3dddb7ac55e02b2b032ac6ba40b17ea4d1ef7deb49"
+    },
+    "config.example.json": {
+      "bytes": 6112,
+      "sha256": "482ff4a86335f1baac75eddf4b0e8108f196dfc5eb9a4134f57c7085adf3c647"
+    },
+    "docs/benchmark-method.md": {
+      "bytes": 12055,
+      "sha256": "5d72c6e7dc28a05014e8167580818edd82f9895a94038f8a126a4d7e02f4addf"
+    },
+    "docs/system-changes.md": {
+      "bytes": 6640,
+      "sha256": "ac67b2203781b7597cec5d06232b02596c12ce35afd7839c7b08cedf783c20ee"
+    },
+    "metadata.example.json": {
+      "bytes": 1913,
+      "sha256": "896f46970ecae035234ca2b7bb5f7c7145471b7c14ea4a99a5aedb1b06f6a3cc"
+    },
+    "provenance.json": {
+      "bytes": 1870,
+      "sha256": "3e09c4ad427a0d812c2f80d333d9ee2dc8dc9d901d223661c7f463b41fdd9368"
+    },
+    "results/alex-rigmark-result.json": {
+      "bytes": 138289,
+      "sha256": "7f9c9cc1f617f5e183950127f1e3b716edec4dc23c731876366fde64dea89b46"
+    },
+    "results/rigmark-comparison.card.txt": {
+      "bytes": 3444,
+      "sha256": "4159e348c9b271ff1521962ab8c4138f2f67f894a9aea04b2e8bbdc6c64ff25c"
+    },
+    "results/rigmark-comparison.json": {
+      "bytes": 2120,
+      "sha256": "5f4ce1c7216eee0f62351a1cabf903d179838970bac61a4396ecf582690b31b4"
+    },
+    "results/rigmark-result.card.txt": {
+      "bytes": 3609,
+      "sha256": "3ccf2a927134789804d4d72a6cde83e1a9d20ec5d009321f13e8c7d882f80098"
+    },
+    "results/rigmark-result.json": {
+      "bytes": 143917,
+      "sha256": "d4c953465b9db4eaeaf46a40fa128aa0f3f4e077078a57ef04846ffc279b0200"
+    },
+    "results/rigmark-run-audit.json": {
+      "bytes": 629,
+      "sha256": "e77b3202e1d141937ff173df08a64998fb539db8d006108e06858ddfa80b3e31"
+    },
+    "results/rigmark-runner-executed.py": {
+      "bytes": 4743,
+      "sha256": "539951eebb08ae19f18f203fa83e820ae2af2a2058964fe9f2b52ddd9855364b"
+    },
+    "results/rigmark-runtime-proof.json": {
+      "bytes": 9772,
+      "sha256": "3b86444b566ffaa9217288ef93c67a042ed733752bc42f126f85218ca9eed48f"
+    },
+    "results/rigmark-source-proof.json": {
+      "bytes": 9419,
+      "sha256": "a22e47fd6accaf3b16385fcdef449524eb6bb88145debf9f8525640fb2dc2872"
+    },
+    "results/sparkdash-summary.json": {
+      "bytes": 7259,
+      "sha256": "4164b8eeb010c5f3ce72b3d4019672565bfb6b7864bd485ac52d1417d96afbdf"
+    },
+    "scripts/build-nccl.sh": {
+      "bytes": 6965,
+      "sha256": "7467d91d3895c855147d3c0f248592c79c537024b373dcf1bfd7cf516a1e0d4f"
+    },
+    "scripts/capture-function-counters.py": {
+      "bytes": 3035,
+      "sha256": "00efcb9d1eb93143f97517a1e08889a7a66d0859b1cf3acdd255a8a69c06779e"
+    },
+    "scripts/chat.py": {
+      "bytes": 5702,
+      "sha256": "0e9bb3ced83443901e61f608e82683dd175509a6b32d473123f11fe2d46b8cd7"
+    },
+    "scripts/check-public.py": {
+      "bytes": 3260,
+      "sha256": "c7c2c11fa18375b1049f8f4544663a8963c45e86c99935475f4fd5310eeb7ed6"
+    },
+    "scripts/cluster.py": {
+      "bytes": 21068,
+      "sha256": "84b8bca7997807c099c02135473a644722f219d0d67aa7458e6c2d08add2109e"
+    },
+    "scripts/collective-probe.py": {
+      "bytes": 6968,
+      "sha256": "3dd7603e5ddf808241f8dd37eb26ad9042457c97c747e430f5f41c13ac4f4dcc"
+    },
+    "scripts/common.py": {
+      "bytes": 14633,
+      "sha256": "c28b73815e7756110cf6a7d88b791bf8e5bc2b59e4c021f63046732f04bc17da"
+    },
+    "scripts/download-models.py": {
+      "bytes": 6003,
+      "sha256": "5ecc4e1defb3007fc248f5f33a6305d8d5c810ddd82666ee2bb31989e488f16e"
+    },
+    "scripts/fabric.py": {
+      "bytes": 23524,
+      "sha256": "711b02b51d3b6520bfd1d188309a59b1dc76060504e483e2997d0807f3fc45dc"
+    },
+    "scripts/qualify.py": {
+      "bytes": 29843,
+      "sha256": "42ba0cc437c4a22b358b45a821b740652f228c512e91ea3a886d8651c9825701"
+    },
+    "scripts/run-rigmark.py": {
+      "bytes": 5318,
+      "sha256": "326efc308b075926fcc9dbd89ba12d6d6b3f34a83a51a27a31c792936d629eb1"
+    },
+    "scripts/runtime.py": {
+      "bytes": 1731,
+      "sha256": "052fd58317f77b519894684872d97ae76c3cad61920a741300228f8d879f3ca5"
+    },
+    "tests/test_config.py": {
+      "bytes": 11867,
+      "sha256": "f92225770abb7f6f3fa3b461caa9e31d8079e6d97686a53097afbc451554b495"
+    },
+    "third_party/nccl/LICENSE.txt": {
+      "bytes": 13261,
+      "sha256": "c1f53beabe4dbf05bd87c00f7ca6084c0cb541c3f7bf8edab7913f266018b7be"
+    },
+    "third_party/nccl/ThirdPartyNotices.txt": {
+      "bytes": 12482,
+      "sha256": "afc433a3b9262c3266f5e683e017fb6a44687c5098967928e478be6614e77df6"
+    },
+    "third_party/rigmark/LICENSE": {
+      "bytes": 1084,
+      "sha256": "19058b602fc9af61d619420a322be1deeb52c4a2da78a6ace1120c87a5e0b044"
+    },
+    "third_party/sparkring/LICENSE": {
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "third_party/sparkring/NOTICE": {
+      "bytes": 718,
+      "sha256": "255dd2f1a1973d1ea428d70869e3b5791cc65cbef86c232879dd67e4f9b9b54c"
+    },
+    "third_party/sparkring/THIRD_PARTY_NOTICES.md": {
+      "bytes": 25718,
+      "sha256": "d361010133731a71b012aa823a7706b28c6258f7a1ae7d69749eb126091ec3a3"
+    },
+    "third_party/sparkring/nccl-2.30.7-dual-pci-domain.patch": {
+      "bytes": 31610,
+      "sha256": "8e2b8715d62d2b07a74caca3778da0eff2e7b54caf8a184bb728f179a5d1eba4"
+    }
+  },
+  "schema": "public-recipe-files/v1"
+}

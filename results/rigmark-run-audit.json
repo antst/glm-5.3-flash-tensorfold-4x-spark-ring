@@ -1,0 +1,16 @@
+{
+  "started": "2026-10-09T23:49:16.130822+00:00",
+  "finished": "2026-10-09T23:56:13.047059+00:00",
+  "return_code": 0,
+  "benchmark_revision": "d8353e93b274e8d880ab14a5df2a55c87d7bee16",
+  "source_clean": true,
+  "requests_before": 125,
+  "requests_after": 179,
+  "requests_delta": 54,
+  "receipt_requests": 54,
+  "external_requests_detected": false,
+  "active_after": 0,
+  "decode_gates_passed": true,
+  "result_sha256": "d4c953465b9db4eaeaf46a40fa128aa0f3f4e077078a57ef04846ffc279b0200",
+  "scope": "Client protocol matches Alex Sept12. Engine, quantisation, scheduler and context differ. No server configuration changes."
+}

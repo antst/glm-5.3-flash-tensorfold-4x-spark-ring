@@ -1,0 +1,78 @@
+{
+  "schema": "spark-ring-rigmark-comparison/v1",
+  "client_protocol_settings_matched": true,
+  "seed_matched": true,
+  "completion_gates_passed": 15,
+  "expected_inference_requests": 54,
+  "requests_delta": 54,
+  "all16_hca_payload_zero_errors_passed": true,
+  "same_running_containers_before_after": true,
+  "raw_receipts_sha256": {
+    "rigmark-result.json": "d4c953465b9db4eaeaf46a40fa128aa0f3f4e077078a57ef04846ffc279b0200",
+    "alex-rigmark-result.json": "7f9c9cc1f617f5e183950127f1e3b716edec4dc23c731876366fde64dea89b46"
+  },
+  "rows": [
+    {
+      "metric": "Completed code decode",
+      "alex": 71.326,
+      "ours": 111.723,
+      "ratio": 1.5663713092000113,
+      "ours_range": [
+        106.84,
+        115.079
+      ]
+    },
+    {
+      "metric": "Completed prose decode",
+      "alex": 31.236,
+      "ours": 62.945,
+      "ratio": 2.0151427839672174,
+      "ours_range": [
+        60.386,
+        63.532
+      ]
+    },
+    {
+      "metric": "Structured JSON ceiling",
+      "alex": 109.2,
+      "ours": 157.059,
+      "ratio": 1.4382692307692306,
+      "ours_range": [
+        156.996,
+        157.218
+      ]
+    },
+    {
+      "metric": "64K cold prefill",
+      "alex": 1964.652,
+      "ours": 1816.426,
+      "ratio": 0.9245535596125929
+    },
+    {
+      "metric": "64K cached replay",
+      "alex": 36074.876,
+      "ours": 983831.985,
+      "ratio": 27.271943637450065
+    },
+    {
+      "metric": "C1 short code aggregate end-to-end",
+      "alex": 43.023,
+      "ours": 82.748,
+      "ratio": 1.9233433279873555
+    },
+    {
+      "metric": "C2 short code aggregate end-to-end",
+      "alex": 72.456,
+      "ours": 118.949,
+      "ratio": 1.641672187258474
+    },
+    {
+      "metric": "C4 short code aggregate end-to-end",
+      "alex": 110.814,
+      "ours": 162.275,
+      "ratio": 1.4643907809482557
+    }
+  ],
+  "scope": "Different engines/checkpoints/quantisation/KV/scheduler/context; client-matched recipe comparison, not topology-only scaling. Our raw receipt retains unknown Git identity; separate source proof verifies the pinned clean checkout.",
+  "summary_statistic": "median"
+}

@@ -1,0 +1,305 @@
+{
+  "schema": "spark-ring-public-rigmark-runtime-proof/v1",
+  "library_image_identity_before_after_passed": true,
+  "container_ids_unchanged": true,
+  "context": 1048576,
+  "parallel": 8,
+  "pool_tokens": 4569088,
+  "active_requests_after": 0,
+  "requests_before": 125,
+  "requests_after": 179,
+  "expected_inference_requests": 54,
+  "no_additional_inference_requests_detected": true,
+  "prefill_prompt_token_counts_exact": true,
+  "payload_all_hcas_passed": true,
+  "per_rank_function_checks": {
+    "rank0": {
+      "rocep1s0f0": {
+        "identity_stable": true,
+        "payload_passed": true,
+        "error_delta": {
+          "out_of_buffer": 0,
+          "req_cqe_error": 0,
+          "resp_cqe_error": 0,
+          "req_transport_retries_exceeded": 0,
+          "req_rnr_retries_exceeded": 0,
+          "packet_seq_err": 0,
+          "local_ack_timeout_err": 0
+        },
+        "rdma_payload_bytes": {
+          "rx_vport_rdma_unicast_bytes": 928994152868,
+          "tx_vport_rdma_unicast_bytes": 3288670472
+        }
+      },
+      "roceP2p1s0f0": {
+        "identity_stable": true,
+        "payload_passed": true,
+        "error_delta": {
+          "out_of_buffer": 0,
+          "req_cqe_error": 0,
+          "resp_cqe_error": 0,
+          "req_transport_retries_exceeded": 0,
+          "req_rnr_retries_exceeded": 0,
+          "packet_seq_err": 0,
+          "local_ack_timeout_err": 0
+        },
+        "rdma_payload_bytes": {
+          "rx_vport_rdma_unicast_bytes": 924940615872,
+          "tx_vport_rdma_unicast_bytes": 3258600318
+        }
+      },
+      "rocep1s0f1": {
+        "identity_stable": true,
+        "payload_passed": true,
+        "error_delta": {
+          "out_of_buffer": 0,
+          "req_cqe_error": 0,
+          "resp_cqe_error": 0,
+          "req_transport_retries_exceeded": 0,
+          "req_rnr_retries_exceeded": 0,
+          "packet_seq_err": 0,
+          "local_ack_timeout_err": 0
+        },
+        "rdma_payload_bytes": {
+          "rx_vport_rdma_unicast_bytes": 3240430012,
+          "tx_vport_rdma_unicast_bytes": 928946266986
+        }
+      },
+      "roceP2p1s0f1": {
+        "identity_stable": true,
+        "payload_passed": true,
+        "error_delta": {
+          "out_of_buffer": 0,
+          "req_cqe_error": 0,
+          "resp_cqe_error": 0,
+          "req_transport_retries_exceeded": 0,
+          "req_rnr_retries_exceeded": 0,
+          "packet_seq_err": 0,
+          "local_ack_timeout_err": 0
+        },
+        "rdma_payload_bytes": {
+          "rx_vport_rdma_unicast_bytes": 3210134498,
+          "tx_vport_rdma_unicast_bytes": 924892396440
+        }
+      }
+    },
+    "rank1": {
+      "rocep1s0f0": {
+        "identity_stable": true,
+        "payload_passed": true,
+        "error_delta": {
+          "out_of_buffer": 0,
+          "req_cqe_error": 0,
+          "resp_cqe_error": 0,
+          "req_transport_retries_exceeded": 0,
+          "req_rnr_retries_exceeded": 0,
+          "packet_seq_err": 0,
+          "local_ack_timeout_err": 0
+        },
+        "rdma_payload_bytes": {
+          "rx_vport_rdma_unicast_bytes": 928946266986,
+          "tx_vport_rdma_unicast_bytes": 3240430012
+        }
+      },
+      "roceP2p1s0f0": {
+        "identity_stable": true,
+        "payload_passed": true,
+        "error_delta": {
+          "out_of_buffer": 0,
+          "req_cqe_error": 0,
+          "resp_cqe_error": 0,
+          "req_transport_retries_exceeded": 0,
+          "req_rnr_retries_exceeded": 0,
+          "packet_seq_err": 0,
+          "local_ack_timeout_err": 0
+        },
+        "rdma_payload_bytes": {
+          "rx_vport_rdma_unicast_bytes": 924892396440,
+          "tx_vport_rdma_unicast_bytes": 3210134498
+        }
+      },
+      "rocep1s0f1": {
+        "identity_stable": true,
+        "payload_passed": true,
+        "error_delta": {
+          "out_of_buffer": 0,
+          "req_cqe_error": 0,
+          "resp_cqe_error": 0,
+          "req_transport_retries_exceeded": 0,
+          "req_rnr_retries_exceeded": 0,
+          "packet_seq_err": 0,
+          "local_ack_timeout_err": 0
+        },
+        "rdma_payload_bytes": {
+          "rx_vport_rdma_unicast_bytes": 3239287492,
+          "tx_vport_rdma_unicast_bytes": 928945072572
+        }
+      },
+      "roceP2p1s0f1": {
+        "identity_stable": true,
+        "payload_passed": true,
+        "error_delta": {
+          "out_of_buffer": 0,
+          "req_cqe_error": 0,
+          "resp_cqe_error": 0,
+          "req_transport_retries_exceeded": 0,
+          "req_rnr_retries_exceeded": 0,
+          "packet_seq_err": 0,
+          "local_ack_timeout_err": 0
+        },
+        "rdma_payload_bytes": {
+          "rx_vport_rdma_unicast_bytes": 3212759162,
+          "tx_vport_rdma_unicast_bytes": 924894994010
+        }
+      }
+    },
+    "rank2": {
+      "rocep1s0f0": {
+        "identity_stable": true,
+        "payload_passed": true,
+        "error_delta": {
+          "out_of_buffer": 0,
+          "req_cqe_error": 0,
+          "resp_cqe_error": 0,
+          "req_transport_retries_exceeded": 0,
+          "req_rnr_retries_exceeded": 0,
+          "packet_seq_err": 0,
+          "local_ack_timeout_err": 0
+        },
+        "rdma_payload_bytes": {
+          "rx_vport_rdma_unicast_bytes": 928945072572,
+          "tx_vport_rdma_unicast_bytes": 3239287492
+        }
+      },
+      "roceP2p1s0f0": {
+        "identity_stable": true,
+        "payload_passed": true,
+        "error_delta": {
+          "out_of_buffer": 0,
+          "req_cqe_error": 0,
+          "resp_cqe_error": 0,
+          "req_transport_retries_exceeded": 0,
+          "req_rnr_retries_exceeded": 0,
+          "packet_seq_err": 0,
+          "local_ack_timeout_err": 0
+        },
+        "rdma_payload_bytes": {
+          "rx_vport_rdma_unicast_bytes": 924894994010,
+          "tx_vport_rdma_unicast_bytes": 3212759162
+        }
+      },
+      "rocep1s0f1": {
+        "identity_stable": true,
+        "payload_passed": true,
+        "error_delta": {
+          "out_of_buffer": 0,
+          "req_cqe_error": 0,
+          "resp_cqe_error": 0,
+          "req_transport_retries_exceeded": 0,
+          "req_rnr_retries_exceeded": 0,
+          "packet_seq_err": 0,
+          "local_ack_timeout_err": 0
+        },
+        "rdma_payload_bytes": {
+          "rx_vport_rdma_unicast_bytes": 3228838924,
+          "tx_vport_rdma_unicast_bytes": 928934689538
+        }
+      },
+      "roceP2p1s0f1": {
+        "identity_stable": true,
+        "payload_passed": true,
+        "error_delta": {
+          "out_of_buffer": 0,
+          "req_cqe_error": 0,
+          "resp_cqe_error": 0,
+          "req_transport_retries_exceeded": 0,
+          "req_rnr_retries_exceeded": 0,
+          "packet_seq_err": 0,
+          "local_ack_timeout_err": 0
+        },
+        "rdma_payload_bytes": {
+          "rx_vport_rdma_unicast_bytes": 3200723690,
+          "tx_vport_rdma_unicast_bytes": 924883022026
+        }
+      }
+    },
+    "rank3": {
+      "rocep1s0f0": {
+        "identity_stable": true,
+        "payload_passed": true,
+        "error_delta": {
+          "out_of_buffer": 0,
+          "req_cqe_error": 0,
+          "resp_cqe_error": 0,
+          "req_transport_retries_exceeded": 0,
+          "req_rnr_retries_exceeded": 0,
+          "packet_seq_err": 0,
+          "local_ack_timeout_err": 0
+        },
+        "rdma_payload_bytes": {
+          "rx_vport_rdma_unicast_bytes": 928934689538,
+          "tx_vport_rdma_unicast_bytes": 3228838924
+        }
+      },
+      "roceP2p1s0f0": {
+        "identity_stable": true,
+        "payload_passed": true,
+        "error_delta": {
+          "out_of_buffer": 0,
+          "req_cqe_error": 0,
+          "resp_cqe_error": 0,
+          "req_transport_retries_exceeded": 0,
+          "req_rnr_retries_exceeded": 0,
+          "packet_seq_err": 0,
+          "local_ack_timeout_err": 0
+        },
+        "rdma_payload_bytes": {
+          "rx_vport_rdma_unicast_bytes": 924883022026,
+          "tx_vport_rdma_unicast_bytes": 3200723690
+        }
+      },
+      "rocep1s0f1": {
+        "identity_stable": true,
+        "payload_passed": true,
+        "error_delta": {
+          "out_of_buffer": 0,
+          "req_cqe_error": 0,
+          "resp_cqe_error": 0,
+          "req_transport_retries_exceeded": 0,
+          "req_rnr_retries_exceeded": 0,
+          "packet_seq_err": 0,
+          "local_ack_timeout_err": 0
+        },
+        "rdma_payload_bytes": {
+          "rx_vport_rdma_unicast_bytes": 3288670472,
+          "tx_vport_rdma_unicast_bytes": 928994152868
+        }
+      },
+      "roceP2p1s0f1": {
+        "identity_stable": true,
+        "payload_passed": true,
+        "error_delta": {
+          "out_of_buffer": 0,
+          "req_cqe_error": 0,
+          "resp_cqe_error": 0,
+          "req_transport_retries_exceeded": 0,
+          "req_rnr_retries_exceeded": 0,
+          "packet_seq_err": 0,
+          "local_ack_timeout_err": 0
+        },
+        "rdma_payload_bytes": {
+          "rx_vport_rdma_unicast_bytes": 3258600318,
+          "tx_vport_rdma_unicast_bytes": 924940615872
+        }
+      }
+    }
+  },
+  "private_receipt_sha256": {
+    "runtime-before.json": "8aa4f137dab82600d72076fdbe40a72aa0b11efa48c3d5868ec03857876d42df",
+    "runtime-after.json": "08f7373b6298fa526f81ad4fbd489c00bac8e7cd296b5a4bbb43c13c40d16928",
+    "counters-before.json": "eb1e5d3fccd729838aa6f66ff97da984780e4e0e6dea318488745ab3de818840",
+    "counters-after.json": "37b6b3206e872c8840e51ed67a6c69fcac2460cc14206da7a2efc584b3d0c293",
+    "counters-before-to-counters-after-payload.json": "16a1e40359f4efe9e8d433aed7df0fb0a134dfc5097cdb9de0dc30b0b9dd0672"
+  },
+  "scope": "Read-only observations outside measurement interval; same pinned live profile/image/library. Public digest proof excludes private host state and real management addresses."
+}

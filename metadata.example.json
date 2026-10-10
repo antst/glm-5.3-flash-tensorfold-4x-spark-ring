@@ -1,0 +1,19 @@
+{
+  "hardware": "4x NVIDIA DGX Spark GB10, 128 GB unified memory per node",
+  "topology": "TP4 switchless four-node RoCE ring, four HCA functions per node, both PCIe roots per neighbour",
+  "negotiated_link_speed": "200 Gb/s per physical cable; 196.08 Gb/s one-way host-memory payload measured using both PCIe paths, one edge at a time",
+  "model": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
+  "model_revision": "078455ffe6472f9a52fbc1139f58b9db2881b25c",
+  "quantisation": "EXL3 4 bpw MoE weights; Q4 dense backend, not NVFP4",
+  "kv_cache_dtype": "FP8 latent KV",
+  "serving_engine": "TensorFold v0.6.0 + Mia 96 patches, embedded a1897d591f70; no further engine patch",
+  "serving_image": "ghcr.io/miaai-lab/glm-5.3-flash-exl3-2x-dgx-sparks-tensorfold@sha256:bc34d7d63f978cf601f42863b284bc95a567c50c10e9adb0866a635be568bf5f",
+  "drafter": "incoai/GLM-5.3-Flash-DFlash2@bf582e4eacc1810f76656d1811693ff6c6737d2a; fnc7:0.3, copy drafts max15, reply match16, wide graphs16",
+  "context_limit": 1048576,
+  "scheduler": "parallel8, shared verify64, 32 kept prompt states, 24 GiB extra KV, pool4569088 tokens per rank, memory reserve20 GiB",
+  "competing_traffic": "Endpoint idle immediately before run; external traffic assessed from aggregate request count before/after, no other-client content read",
+  "nccl": "NVIDIA NCCL2.30.7 + SparkRing cumulative dual-PCI-root patch, SHA256 aca99264fe2a474e0f7aa964a3c3ef65254ad8f8d375de76631a7eb973c15041; Ring/IB, four NCCL channels, all four HCA functions",
+  "clock_conditions": "Existing clocks/power settings unchanged; no GPU telemetry during benchmark; earlier loaded sample approximately2476-2541MHz",
+  "stream_pacing": "TF_GLM_STREAM_SMOOTH=0",
+  "engine_comparison_scope": "Same Alex Sept12 client protocol/prompts/sampling/low-effort body and comparison ID; different weights/quantisation/engine/pool/scheduler. Recipe comparison, not topology-only A/B."
+}
