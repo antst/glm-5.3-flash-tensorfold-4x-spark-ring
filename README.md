@@ -11,6 +11,10 @@ with a reviewed JSON configuration. Its configuration guards, command plans and
 source checks are tested offline; a fresh installation must run its own hardware
 qualification. No historical receipt in `results/` authorizes a new deployment.
 
+The phase-one release keeps Mia's existing engine version. See the
+[validated scope](docs/phase-one.md), [Mia and Alex benchmark comparisons](docs/benchmark-comparison.md),
+and [benchmark method](docs/benchmark-method.md) for the evidence and limits.
+
 ## Topology and serving profile
 
 ```mermaid
@@ -87,6 +91,8 @@ unless marked as Spark-local. Keep real configuration and trust files under
 ignored `local/`:
 
 ```bash
+git clone https://github.com/antst/glm-5.3-flash-tensorfold-4x-spark-ring.git /shared/spark-ring-tensorfold
+cd /shared/spark-ring-tensorfold
 mkdir -p local
 cp config.example.json local/config.json
 ```
@@ -96,7 +102,11 @@ management interfaces, and the fabric link/HCA mapping. The example management
 addresses are documentation addresses. Either supply an already trusted
 `ssh_options.known_hosts_file`, or remove that option to use your existing SSH
 trust store. SSH uses strict host verification and never updates trust files.
-Optionally supply an existing `identity_file`; keys are not copied by this recipe.
+Trust records must match each node's `host_key_alias` (for example `spark1`);
+alternatively set that alias to its already trusted management IP. SSH bypasses
+the agent and cannot prompt, so use an existing local identity that works
+noninteractively, either a default SSH identity or an explicit `identity_file`.
+Keys are not copied by this recipe.
 
 Review plans before changing hosts:
 
@@ -198,6 +208,26 @@ containers were not restarted or adopted during public packaging.
 
 ## Measurements
 
+### Mia: SparkDash decode comparison
+
+Aggregate decode tok/s, using the thinking-disabled SparkDash workloads:
+
+| Workload | Concurrent requests / server lanes | Mia, 2 Sparks | Mia, 3 Sparks | This recipe, 4 Sparks |
+| --- | --- | ---: | ---: | ---: |
+| Prose | 4 / 4 | 108.8 | 146.2 | **158.8** |
+| Prose | 8 / 8 | 130.8 | 166.0 | **215.7** |
+| Python code | 8 / 8 | 167.0 | 211.5 | **290.7** |
+
+Our values are three-wave medians. The 4-lane row is a historical native1M
+profile; the 8-lane rows use the current profile. Mia's numbers are published
+external results, with differences in clocks, transport and serving settings.
+The original Mia run receipts and exact output caps are unavailable. These
+figures compare whole configurations; they do not isolate node-count scaling.
+The [complete comparison](docs/benchmark-comparison.md) includes single-request
+results, P4/P8 tables, missing measurements, sources, ranges and ratios.
+
+### Alex: RigMark completed outputs and end-to-end concurrency
+
 Full pinned **RigMark 1.0.0** run: five completed outputs per workload,
 low-effort reasoning, 4096-token ceiling; all **15/15 gates passed**. Settings,
 seed and nonce-producing comparison ID match Alex's September 12 receipt.
@@ -220,9 +250,15 @@ engines, schedulers and context settings. All 54 expected inference requests
 were accounted for; every configured HCA carried payload with zero new
 errors and ranks remained unchanged.
 
+At 64K, median first-token latency was 36.08 s versus Alex's 33.36 s, an extra
+2.72 s. Decode rates exclude this initial wait; RigMark's concurrency rates
+already include prefill and queueing. The cold-prefill gap has not been assigned
+to a single cause. Prefix reuse reduces new prefill work; the cached-replay
+number applies to an identical prompt, not arbitrary edited conversations.
+
 Publish the [unaltered receipt](results/rigmark-result.json), [reference receipt](results/alex-rigmark-result.json), [comparison](results/rigmark-comparison.json), [runtime proof](results/rigmark-runtime-proof.json) and [source proof](results/rigmark-source-proof.json) together. The raw receipt says Git identity unknown because of NFS ownership/trust; the executed wrapper independently verified the clean pinned source. No result fields were edited. Future runs apply the Git trust exception only to the child process.
 
-Prior SparkDash measurements used thinking disabled and fixed 400-token outputs:
+Additional SparkDash measurements used fixed 400-token outputs:
 
 | Workload | Active requests / server lane limit | Aggregate decode tok/s |
 | --- | --- | ---: |

@@ -40,5 +40,8 @@
     "gcc": "13.3.0",
     "architecture": "ARM aarch64",
     "gpu_target": "sm_121"
-  }
+  },
+  "sparkdash_revision": "fab8dadff951d1c8cc1450a657805d8e3ea5c9f6",
+  "public_repository": "https://github.com/antst/glm-5.3-flash-tensorfold-4x-spark-ring",
+  "phase_one_release": "v0.1.0"
 }

@@ -1,0 +1,1121 @@
+{
+  "alex_comparison": {
+    "cold_prefill_64k": {
+      "additional_ttft_seconds": 2.722073,
+      "alex_median_tokens_per_second": 1964.652,
+      "alex_median_ttft_seconds": 33.357567,
+      "cause": "Not established by the existing measurements; all-rail payload/error proof and single-edge capacity do not rule out NCCL/PCIe critical-path cost.",
+      "ours_median_tokens_per_second": 1816.426,
+      "ours_median_ttft_seconds": 36.07964,
+      "ratio": 0.9245535596125929
+    },
+    "method": "Pinned unmodified RigMark 1.0.0, matched client source/prompts/settings/seed/comparison ID; low-effort reasoning; 15/15 decode gates and 54 expected requests.",
+    "path": "rigmark-comparison.json",
+    "scope": "Different EXL3/TensorFold versus NVFP4/vLLM engine/checkpoint/quantization/KV/speculation/scheduler/context."
+  },
+  "compiled_at_utc": "2026-10-10T00:23:55.660673+00:00",
+  "limits": [
+    "Mia original output-token cap, input-token counts, repetition statistics, cache state and exact sampling/body/harness revision are unavailable. 400 is the verified SparkDash default, not proof of the original Mia cap.",
+    "Mia source reports the main TP2 P4 GPU cap of 2200 MHz. Separate P8/TP3 boot clocks are not independently verified; our existing clocks/power were unchanged and no synchronized benchmark telemetry was collected.",
+    "Mia P4 and P8 tables were measured on different boots. Do not splice them into one scheduler profile or treat cross-boot differences as isolated scaling.",
+    "Only one P8 C1 prose probe exists locally. P8 C2/C4 and code C1/C2/C4 were not measured; missing values are not inferred from P4.",
+    "P4 C8 is eight clients queued through four serving lanes, not an eight-lane run.",
+    "Our warmups force 32 tokens; upstream warmups normally request 32 without force-fill fields. Our stream smoothing is off; pinned Mia default smoothing is on/400 ms, but original run flags are unavailable.",
+    "Fixed 400-token output with ignored EOS is a throughput exercise. Counting checks verify sequential prefixes; no complete-code semantic or compilation gate was applied.",
+    "Our configured 1M context was exercised with 26333 input tokens plus 32768 reply allowance, with a short actual reply; no full 1M prompt or eight full-window stress test. The 4569088-token pool is shared, not eight 1M allocations.",
+    "No local TP2/TP3 control was run. Clock, transport, pool, profile and possibly exact published runtime/model revision differ, so ratios do not isolate a topology, engine or node-count effect.",
+    "Historical 16K results are preserved separately and excluded from these 1M profile tables."
+  ],
+  "measured_streams_including_single_probe": 163,
+  "measured_streams_main_matrix": 162,
+  "metric": {
+    "formula": "sum(completion_tokens_i-1)/(latest_last_visible_content_timestamp-earliest_first_visible_content_timestamp)",
+    "name": "aggregate_decode_tokens_per_second",
+    "our_aggregation": "Median of every retained wave within a workload/concurrency/lane profile; single P8 C1 prose probe explicitly labeled.",
+    "rigmark_difference": "RigMark concurrency summary is aggregate end-to-end, not this aggregate decode metric; its nonempty stream timing can include reasoning.",
+    "separate_e2e_formula": "sum(completion_tokens_i)/complete_concurrent_request_wall_seconds",
+    "timestamp_scope": "Visible content only; reasoning disabled and rejected if reported. Drafted bursts and stream pacing affect event timing.",
+    "units": "tokens/s"
+  },
+  "our_provenance": {
+    "engine": "TensorFold v0.6.0 + Mia96 patches; image already supports TP4",
+    "full_recipe_provenance": "../provenance.json",
+    "image": "ghcr.io/miaai-lab/glm-5.3-flash-exl3-2x-dgx-sparks-tensorfold@sha256:bc34d7d63f978cf601f42863b284bc95a567c50c10e9adb0866a635be568bf5f",
+    "library_sha256": "aca99264fe2a474e0f7aa964a3c3ef65254ad8f8d375de76631a7eb973c15041",
+    "models": [
+      {
+        "directory": "glm53-exl3",
+        "repo": "Mia-AiLab/GLM-5.3-Flash-EXL3-4bpw-TensorFold",
+        "revision": "078455ffe6472f9a52fbc1139f58b9db2881b25c"
+      },
+      {
+        "directory": "dflash2",
+        "repo": "incoai/GLM-5.3-Flash-DFlash2",
+        "revision": "bf582e4eacc1810f76656d1811693ff6c6737d2a"
+      }
+    ],
+    "topology": "Four-rank switchless ring; both PCIe roots per neighbor; management bootstrap separate."
+  },
+  "our_request_protocol": {
+    "chat_template_kwargs": {
+      "enable_thinking": false
+    },
+    "draft_override": null,
+    "drafting": "Configured DFlash2/copy drafting remains enabled.",
+    "ignore_eos": true,
+    "max_tokens": 400,
+    "min_tokens": 400,
+    "prefix_caching": "Normal caching preserved; actual usage/cached tokens captured.",
+    "reasoning_effort": "none",
+    "stop": [],
+    "stream": true,
+    "stream_options": {
+      "include_usage": true
+    },
+    "temperature": 0,
+    "top_p": 1,
+    "warmup_force_fill": true,
+    "warmup_tokens": 32,
+    "workload_notes": {
+      "counting": "SparkDash Structured means counting from 1 to 200, not RigMark structured JSON. Budget-truncated sequential prefixes were checked, not completion of all 200 values.",
+      "prose": "SparkDash hash-map explanation; distinct stream suffix when concurrency exceeds 1.",
+      "python_code": "Eight distinct SparkDash Python tasks; no stream suffix; not the counting workload."
+    }
+  },
+  "profiles": {
+    "mia_tp2_p4": {
+      "clock_cap_mhz": 2200,
+      "clock_provenance": "Explicitly stated for the main TP2 performance table.",
+      "context": 1048576,
+      "raw_run_available": false,
+      "serving_lanes": 4,
+      "table_source": "https://github.com/MiaAI-Lab/GLM-5.3-Flash-EXL3-2x-DGX-Sparks-TensorFold/blob/7d42f905388a8d7fa91e2dc9458e0a4a68001540/README.md#L33-L44",
+      "tp_ranks": 2,
+      "verify_window_rows": 32
+    },
+    "mia_tp2_p8": {
+      "clock_cap_mhz": null,
+      "clock_provenance": "The main TP2 section reports 2200 MHz; the separate P8 boot cap is not independently preserved.",
+      "context": 1048576,
+      "published_boot_date": "2026-10-03",
+      "raw_run_available": false,
+      "serving_lanes": 8,
+      "table_source": "https://github.com/MiaAI-Lab/GLM-5.3-Flash-EXL3-2x-DGX-Sparks-TensorFold/blob/7d42f905388a8d7fa91e2dc9458e0a4a68001540/README.md#L49-L61",
+      "tp_ranks": 2,
+      "verify_window_rows": 64
+    },
+    "mia_tp3_p4": {
+      "clock_cap_mhz": null,
+      "clock_provenance": "Per-boot clock conditions not independently verified.",
+      "context": 1048576,
+      "raw_run_available": false,
+      "serving_lanes": 4,
+      "table_source": "https://github.com/MiaAI-Lab/GLM-5.3-Flash-EXL3-2x-DGX-Sparks-TensorFold/blob/7d42f905388a8d7fa91e2dc9458e0a4a68001540/README.md#L410-L429",
+      "tp_ranks": 3,
+      "verify_window_rows": 32
+    },
+    "mia_tp3_p8": {
+      "clock_cap_mhz": null,
+      "clock_provenance": "Per-boot clock conditions not independently verified; upstream warns this differs from the P4 boot.",
+      "context": 1048576,
+      "published_boot_date": "2026-10-03",
+      "raw_run_available": false,
+      "serving_lanes": 8,
+      "table_source": "https://github.com/MiaAI-Lab/GLM-5.3-Flash-EXL3-2x-DGX-Sparks-TensorFold/blob/7d42f905388a8d7fa91e2dc9458e0a4a68001540/README.md#L432-L445",
+      "tp_ranks": 3,
+      "verify_window_rows": 64
+    },
+    "ours_tp4_p4": {
+      "clock_conditions": "Existing clocks/power unchanged; earlier loaded sample 2476\u20132541 MHz, not synchronized benchmark telemetry.",
+      "context": 1048576,
+      "default_reply_tokens": 4096,
+      "historical": true,
+      "kept_prompt_states": 8,
+      "serving_lanes": 4,
+      "tp_ranks": 4,
+      "verify_window_rows": 32
+    },
+    "ours_tp4_p8": {
+      "clock_conditions": "Existing clocks/power unchanged; no synchronized GPU telemetry during this matrix.",
+      "context": 1048576,
+      "default_reply_tokens": 32768,
+      "extra_cache_gib": 24,
+      "historical": false,
+      "kept_prompt_states": 32,
+      "measured_shared_pool_tokens": 4569088,
+      "memory_reserve_gib": 20,
+      "parallel": 8,
+      "serving_lanes": 8,
+      "tp_ranks": 4,
+      "verify_window": 64,
+      "verify_window_rows": 64
+    }
+  },
+  "retained_measurements": [
+    {
+      "artifact_id": "20261009T2311-sparkdash-1m",
+      "finished_at": "2026-10-09T23:12:58.886639+00:00",
+      "measured_streams": 42,
+      "original_result_sha256": "984adfe463534499dbe1a471f1944bd9836ff9a7afc7c4b608b30a882a5184cb",
+      "publication": "Original full receipt retained privately; selected measurements and digest published here.",
+      "runner_sha256": "04102d5f0fe1d147b657a74c178613857178ca568909343e1535316301bad395",
+      "serving_lanes": 4,
+      "started_at": "2026-10-09T23:11:21.961179+00:00",
+      "warmup_requests": 2
+    },
+    {
+      "artifact_id": "20261009T2315-sparkdash-1m-c8",
+      "finished_at": "2026-10-09T23:14:52.277922+00:00",
+      "measured_streams": 48,
+      "original_result_sha256": "c9ac9fedb6eb88f631ed75a58c257d25189426f2278c1565bc65df6c18e77a00",
+      "publication": "Original full receipt retained privately; selected measurements and digest published here.",
+      "runner_sha256": "684d4ff8e35c74b91b63070edb9bef9af4a37c1950f73732144345decccb8d4f",
+      "serving_lanes": 4,
+      "started_at": "2026-10-09T23:13:23.056197+00:00",
+      "warmup_requests": 2
+    },
+    {
+      "artifact_id": "20261009T2325-sparkdash-1m-p8-c8",
+      "finished_at": "2026-10-09T23:25:41.427113+00:00",
+      "measured_streams": 72,
+      "original_result_sha256": "816a869be0d5dcf4b3be8b6e264b388a4589289f390b63fa8b94bdc523e06ef2",
+      "publication": "Original full receipt retained privately; selected measurements and digest published here.",
+      "runner_sha256": "5ccd6fcd355a64964e356c707f98c2526d67179a418cf1b9eff78f81da6caa60",
+      "serving_lanes": 8,
+      "started_at": "2026-10-09T23:24:02.366952+00:00",
+      "warmup_requests": 3
+    },
+    {
+      "artifact_id": "20261009T2328-sparkdash-p8-single-check",
+      "finished_at": "2026-10-09T23:27:32.133030+00:00",
+      "measured_streams": 1,
+      "original_result_sha256": "a89bd73ef3d909d41f04ce8fdf789022f2e41672d1652c02f19315a02a973ddc",
+      "publication": "Original full receipt retained privately; selected measurements and digest published here.",
+      "runner_sha256": "5ccd6fcd355a64964e356c707f98c2526d67179a418cf1b9eff78f81da6caa60",
+      "serving_lanes": 8,
+      "started_at": "2026-10-09T23:27:26.983185+00:00",
+      "warmup_requests": 1
+    }
+  ],
+  "rows": [
+    {
+      "concurrency": 1,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": 60.4,
+        "profile": "mia_tp2_p4",
+        "published_ttft_ms": 170.0,
+        "status": "published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": 77.6,
+        "profile": "mia_tp3_p4",
+        "published_ttft_ms": 144.0,
+        "status": "published"
+      },
+      "ours_over_mia_tp2": 1.4711601672656358,
+      "ours_over_mia_tp3": 1.1450782745211907,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": 88.8580741028444,
+        "all_wave_range": [
+          88.83551591106398,
+          89.0327707705127
+        ],
+        "all_wave_rates": [
+          89.0327707705127,
+          88.83551591106398,
+          88.8580741028444
+        ],
+        "artifact_id": "20261009T2311-sparkdash-1m",
+        "cached_prompt_token_counts": [
+          0
+        ],
+        "concurrency_exceeds_lanes": false,
+        "measured_streams": 3,
+        "median_end_to_end_tokens_per_second": 86.88448875407205,
+        "median_stream_ttft_seconds": 0.11238868162035942,
+        "profile": "ours_tp4_p4",
+        "prompt_token_counts": [
+          33
+        ],
+        "status": "measured_three_wave_median",
+        "waves": 3
+      },
+      "percent_difference_from_mia_tp2": 47.11601672656358,
+      "percent_difference_from_mia_tp3": 14.50782745211907,
+      "serving_lanes": 4,
+      "workload": "prose"
+    },
+    {
+      "concurrency": 2,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": 79.2,
+        "profile": "mia_tp2_p4",
+        "published_ttft_ms": 269.0,
+        "status": "published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": 95.7,
+        "profile": "mia_tp3_p4",
+        "published_ttft_ms": 264.0,
+        "status": "published"
+      },
+      "ours_over_mia_tp2": 1.5581559550886004,
+      "ours_over_mia_tp3": 1.2895083766250486,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": 123.40595164301715,
+        "all_wave_range": [
+          122.40018675963495,
+          124.23754898615971
+        ],
+        "all_wave_rates": [
+          122.40018675963495,
+          124.23754898615971,
+          123.40595164301715
+        ],
+        "artifact_id": "20261009T2311-sparkdash-1m",
+        "cached_prompt_token_counts": [
+          0
+        ],
+        "concurrency_exceeds_lanes": false,
+        "measured_streams": 6,
+        "median_end_to_end_tokens_per_second": 120.68338336168318,
+        "median_stream_ttft_seconds": 0.1636272929608822,
+        "profile": "ours_tp4_p4",
+        "prompt_token_counts": [
+          40
+        ],
+        "status": "measured_three_wave_median",
+        "waves": 3
+      },
+      "percent_difference_from_mia_tp2": 55.81559550886004,
+      "percent_difference_from_mia_tp3": 28.95083766250486,
+      "serving_lanes": 4,
+      "workload": "prose"
+    },
+    {
+      "concurrency": 4,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": 108.8,
+        "profile": "mia_tp2_p4",
+        "published_ttft_ms": 340.0,
+        "status": "published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": 146.2,
+        "profile": "mia_tp3_p4",
+        "published_ttft_ms": 262.0,
+        "status": "published"
+      },
+      "ours_over_mia_tp2": 1.4595686410479611,
+      "ours_over_mia_tp3": 1.0861906165938315,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": 158.80106814601817,
+        "all_wave_range": [
+          158.71450564475714,
+          158.9619252452524
+        ],
+        "all_wave_rates": [
+          158.9619252452524,
+          158.71450564475714,
+          158.80106814601817
+        ],
+        "artifact_id": "20261009T2311-sparkdash-1m",
+        "cached_prompt_token_counts": [
+          0
+        ],
+        "concurrency_exceeds_lanes": false,
+        "measured_streams": 12,
+        "median_end_to_end_tokens_per_second": 157.20741753112705,
+        "median_stream_ttft_seconds": 0.3045054208487272,
+        "profile": "ours_tp4_p4",
+        "prompt_token_counts": [
+          40
+        ],
+        "status": "measured_three_wave_median",
+        "waves": 3
+      },
+      "percent_difference_from_mia_tp2": 45.95686410479611,
+      "percent_difference_from_mia_tp3": 8.619061659383153,
+      "serving_lanes": 4,
+      "workload": "prose"
+    },
+    {
+      "concurrency": 8,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp2_p4",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp3_p4",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "ours_over_mia_tp2": null,
+      "ours_over_mia_tp3": null,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": 157.32493725696975,
+        "all_wave_range": [
+          156.85397250775688,
+          160.3603264954352
+        ],
+        "all_wave_rates": [
+          160.3603264954352,
+          157.32493725696975,
+          156.85397250775688
+        ],
+        "artifact_id": "20261009T2315-sparkdash-1m-c8",
+        "cached_prompt_token_counts": [
+          0
+        ],
+        "concurrency_exceeds_lanes": true,
+        "measured_streams": 24,
+        "median_end_to_end_tokens_per_second": 156.33868055787227,
+        "median_stream_ttft_seconds": 4.723919685930014,
+        "profile": "ours_tp4_p4",
+        "prompt_token_counts": [
+          40
+        ],
+        "status": "measured_three_wave_median",
+        "waves": 3
+      },
+      "percent_difference_from_mia_tp2": null,
+      "percent_difference_from_mia_tp3": null,
+      "serving_lanes": 4,
+      "workload": "prose"
+    },
+    {
+      "concurrency": 1,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp2_p4",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": 104.3,
+        "profile": "mia_tp3_p4",
+        "published_ttft_ms": 192.0,
+        "status": "published"
+      },
+      "ours_over_mia_tp2": null,
+      "ours_over_mia_tp3": null,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": null,
+        "measured_streams": 0,
+        "profile": "ours_tp4_p4",
+        "status": "not_measured",
+        "waves": 0
+      },
+      "percent_difference_from_mia_tp2": null,
+      "percent_difference_from_mia_tp3": null,
+      "serving_lanes": 4,
+      "workload": "python_code"
+    },
+    {
+      "concurrency": 2,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp2_p4",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": 139.0,
+        "profile": "mia_tp3_p4",
+        "published_ttft_ms": 293.0,
+        "status": "published"
+      },
+      "ours_over_mia_tp2": null,
+      "ours_over_mia_tp3": null,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": null,
+        "measured_streams": 0,
+        "profile": "ours_tp4_p4",
+        "status": "not_measured",
+        "waves": 0
+      },
+      "percent_difference_from_mia_tp2": null,
+      "percent_difference_from_mia_tp3": null,
+      "serving_lanes": 4,
+      "workload": "python_code"
+    },
+    {
+      "concurrency": 4,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp2_p4",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": 169.6,
+        "profile": "mia_tp3_p4",
+        "published_ttft_ms": 348.0,
+        "status": "published"
+      },
+      "ours_over_mia_tp2": null,
+      "ours_over_mia_tp3": null,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": null,
+        "measured_streams": 0,
+        "profile": "ours_tp4_p4",
+        "status": "not_measured",
+        "waves": 0
+      },
+      "percent_difference_from_mia_tp2": null,
+      "percent_difference_from_mia_tp3": null,
+      "serving_lanes": 4,
+      "workload": "python_code"
+    },
+    {
+      "concurrency": 8,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp2_p4",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp3_p4",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "ours_over_mia_tp2": null,
+      "ours_over_mia_tp3": null,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": null,
+        "measured_streams": 0,
+        "profile": "ours_tp4_p4",
+        "status": "not_measured",
+        "waves": 0
+      },
+      "percent_difference_from_mia_tp2": null,
+      "percent_difference_from_mia_tp3": null,
+      "serving_lanes": 4,
+      "workload": "python_code"
+    },
+    {
+      "concurrency": 1,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": 114.7,
+        "profile": "mia_tp2_p4",
+        "published_ttft_ms": 149.0,
+        "status": "published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp3_p4",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "ours_over_mia_tp2": 1.480195724008111,
+      "ours_over_mia_tp3": null,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": 169.77844954373032,
+        "all_wave_range": [
+          169.62856636822346,
+          170.1607396739254
+        ],
+        "all_wave_rates": [
+          169.77844954373032,
+          170.1607396739254,
+          169.62856636822346
+        ],
+        "artifact_id": "20261009T2311-sparkdash-1m",
+        "cached_prompt_token_counts": [
+          0
+        ],
+        "concurrency_exceeds_lanes": false,
+        "measured_streams": 3,
+        "median_end_to_end_tokens_per_second": 163.16479239026498,
+        "median_stream_ttft_seconds": 0.10066630318760872,
+        "profile": "ours_tp4_p4",
+        "prompt_token_counts": [
+          27
+        ],
+        "status": "measured_three_wave_median",
+        "waves": 3
+      },
+      "percent_difference_from_mia_tp2": 48.01957240081109,
+      "percent_difference_from_mia_tp3": null,
+      "serving_lanes": 4,
+      "workload": "counting"
+    },
+    {
+      "concurrency": 2,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": 147.6,
+        "profile": "mia_tp2_p4",
+        "published_ttft_ms": 295.0,
+        "status": "published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp3_p4",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "ours_over_mia_tp2": 1.6660610408476426,
+      "ours_over_mia_tp3": null,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": 245.91060962911203,
+        "all_wave_range": [
+          245.15637833668367,
+          246.3139586316309
+        ],
+        "all_wave_rates": [
+          246.3139586316309,
+          245.91060962911203,
+          245.15637833668367
+        ],
+        "artifact_id": "20261009T2311-sparkdash-1m",
+        "cached_prompt_token_counts": [
+          0
+        ],
+        "concurrency_exceeds_lanes": false,
+        "measured_streams": 6,
+        "median_end_to_end_tokens_per_second": 237.87354974703098,
+        "median_stream_ttft_seconds": 0.1659392062574625,
+        "profile": "ours_tp4_p4",
+        "prompt_token_counts": [
+          34
+        ],
+        "status": "measured_three_wave_median",
+        "waves": 3
+      },
+      "percent_difference_from_mia_tp2": 66.60610408476427,
+      "percent_difference_from_mia_tp3": null,
+      "serving_lanes": 4,
+      "workload": "counting"
+    },
+    {
+      "concurrency": 4,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": 227.9,
+        "profile": "mia_tp2_p4",
+        "published_ttft_ms": 415.0,
+        "status": "published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp3_p4",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "ours_over_mia_tp2": 1.6466719122112556,
+      "ours_over_mia_tp3": null,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": 375.27652879294516,
+        "all_wave_range": [
+          374.9776327655758,
+          376.03789901228316
+        ],
+        "all_wave_rates": [
+          376.03789901228316,
+          375.27652879294516,
+          374.9776327655758
+        ],
+        "artifact_id": "20261009T2311-sparkdash-1m",
+        "cached_prompt_token_counts": [
+          0
+        ],
+        "concurrency_exceeds_lanes": false,
+        "measured_streams": 12,
+        "median_end_to_end_tokens_per_second": 366.27191355880177,
+        "median_stream_ttft_seconds": 0.28168731555342674,
+        "profile": "ours_tp4_p4",
+        "prompt_token_counts": [
+          34
+        ],
+        "status": "measured_three_wave_median",
+        "waves": 3
+      },
+      "percent_difference_from_mia_tp2": 64.66719122112556,
+      "percent_difference_from_mia_tp3": null,
+      "serving_lanes": 4,
+      "workload": "counting"
+    },
+    {
+      "concurrency": 8,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp2_p4",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp3_p4",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "ours_over_mia_tp2": null,
+      "ours_over_mia_tp3": null,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": 358.1158329486752,
+        "all_wave_range": [
+          356.9776320981309,
+          376.127237930155
+        ],
+        "all_wave_rates": [
+          358.1158329486752,
+          356.9776320981309,
+          376.127237930155
+        ],
+        "artifact_id": "20261009T2315-sparkdash-1m-c8",
+        "cached_prompt_token_counts": [
+          0
+        ],
+        "concurrency_exceeds_lanes": true,
+        "measured_streams": 24,
+        "median_end_to_end_tokens_per_second": 350.81593743242655,
+        "median_stream_ttft_seconds": 2.276242332533002,
+        "profile": "ours_tp4_p4",
+        "prompt_token_counts": [
+          34
+        ],
+        "status": "measured_three_wave_median",
+        "waves": 3
+      },
+      "percent_difference_from_mia_tp2": null,
+      "percent_difference_from_mia_tp3": null,
+      "serving_lanes": 4,
+      "workload": "counting"
+    },
+    {
+      "concurrency": 1,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp2_p8",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": 65.7,
+        "profile": "mia_tp3_p8",
+        "published_ttft_ms": 143.0,
+        "status": "published"
+      },
+      "ours_over_mia_tp2": null,
+      "ours_over_mia_tp3": 1.3504304565143554,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": 88.72328099299315,
+        "all_wave_range": [
+          88.72328099299315,
+          88.72328099299315
+        ],
+        "all_wave_rates": [
+          88.72328099299315
+        ],
+        "artifact_id": "20261009T2328-sparkdash-p8-single-check",
+        "cached_prompt_token_counts": [
+          0
+        ],
+        "concurrency_exceeds_lanes": false,
+        "measured_streams": 1,
+        "median_end_to_end_tokens_per_second": 86.74297163002555,
+        "median_stream_ttft_seconds": 0.11143898963928223,
+        "profile": "ours_tp4_p8",
+        "prompt_token_counts": [
+          33
+        ],
+        "status": "measured_single_probe",
+        "waves": 1
+      },
+      "percent_difference_from_mia_tp2": null,
+      "percent_difference_from_mia_tp3": 35.04304565143555,
+      "serving_lanes": 8,
+      "workload": "prose"
+    },
+    {
+      "concurrency": 2,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp2_p8",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": 93.8,
+        "profile": "mia_tp3_p8",
+        "published_ttft_ms": 229.0,
+        "status": "published"
+      },
+      "ours_over_mia_tp2": null,
+      "ours_over_mia_tp3": null,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": null,
+        "measured_streams": 0,
+        "profile": "ours_tp4_p8",
+        "status": "not_measured",
+        "waves": 0
+      },
+      "percent_difference_from_mia_tp2": null,
+      "percent_difference_from_mia_tp3": null,
+      "serving_lanes": 8,
+      "workload": "prose"
+    },
+    {
+      "concurrency": 4,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": 103.2,
+        "profile": "mia_tp2_p8",
+        "published_ttft_ms": 298.0,
+        "status": "published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": 121.8,
+        "profile": "mia_tp3_p8",
+        "published_ttft_ms": 336.0,
+        "status": "published"
+      },
+      "ours_over_mia_tp2": null,
+      "ours_over_mia_tp3": null,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": null,
+        "measured_streams": 0,
+        "profile": "ours_tp4_p8",
+        "status": "not_measured",
+        "waves": 0
+      },
+      "percent_difference_from_mia_tp2": null,
+      "percent_difference_from_mia_tp3": null,
+      "serving_lanes": 8,
+      "workload": "prose"
+    },
+    {
+      "concurrency": 8,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": 130.8,
+        "profile": "mia_tp2_p8",
+        "published_ttft_ms": 405.0,
+        "status": "published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": 166.0,
+        "profile": "mia_tp3_p8",
+        "published_ttft_ms": 337.0,
+        "status": "published"
+      },
+      "ours_over_mia_tp2": 1.6491959206598277,
+      "ours_over_mia_tp3": 1.2994869061584668,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": 215.7148264223055,
+        "all_wave_range": [
+          214.49978916575634,
+          216.08188703374216
+        ],
+        "all_wave_rates": [
+          215.7148264223055,
+          216.08188703374216,
+          214.49978916575634
+        ],
+        "artifact_id": "20261009T2325-sparkdash-1m-p8-c8",
+        "cached_prompt_token_counts": [
+          0
+        ],
+        "concurrency_exceeds_lanes": false,
+        "measured_streams": 24,
+        "median_end_to_end_tokens_per_second": 214.28424692458347,
+        "median_stream_ttft_seconds": 0.4368121698498726,
+        "profile": "ours_tp4_p8",
+        "prompt_token_counts": [
+          40
+        ],
+        "status": "measured_three_wave_median",
+        "waves": 3
+      },
+      "percent_difference_from_mia_tp2": 64.91959206598277,
+      "percent_difference_from_mia_tp3": 29.948690615846687,
+      "serving_lanes": 8,
+      "workload": "prose"
+    },
+    {
+      "concurrency": 1,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp2_p8",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": 100.4,
+        "profile": "mia_tp3_p8",
+        "published_ttft_ms": 187.0,
+        "status": "published"
+      },
+      "ours_over_mia_tp2": null,
+      "ours_over_mia_tp3": null,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": null,
+        "measured_streams": 0,
+        "profile": "ours_tp4_p8",
+        "status": "not_measured",
+        "waves": 0
+      },
+      "percent_difference_from_mia_tp2": null,
+      "percent_difference_from_mia_tp3": null,
+      "serving_lanes": 8,
+      "workload": "python_code"
+    },
+    {
+      "concurrency": 2,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp2_p8",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": 129.5,
+        "profile": "mia_tp3_p8",
+        "published_ttft_ms": 280.0,
+        "status": "published"
+      },
+      "ours_over_mia_tp2": null,
+      "ours_over_mia_tp3": null,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": null,
+        "measured_streams": 0,
+        "profile": "ours_tp4_p8",
+        "status": "not_measured",
+        "waves": 0
+      },
+      "percent_difference_from_mia_tp2": null,
+      "percent_difference_from_mia_tp3": null,
+      "serving_lanes": 8,
+      "workload": "python_code"
+    },
+    {
+      "concurrency": 4,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": 126.7,
+        "profile": "mia_tp2_p8",
+        "published_ttft_ms": 446.0,
+        "status": "published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": 165.3,
+        "profile": "mia_tp3_p8",
+        "published_ttft_ms": 356.0,
+        "status": "published"
+      },
+      "ours_over_mia_tp2": null,
+      "ours_over_mia_tp3": null,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": null,
+        "measured_streams": 0,
+        "profile": "ours_tp4_p8",
+        "status": "not_measured",
+        "waves": 0
+      },
+      "percent_difference_from_mia_tp2": null,
+      "percent_difference_from_mia_tp3": null,
+      "serving_lanes": 8,
+      "workload": "python_code"
+    },
+    {
+      "concurrency": 8,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": 167.0,
+        "profile": "mia_tp2_p8",
+        "published_ttft_ms": 733.0,
+        "status": "published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": 211.5,
+        "profile": "mia_tp3_p8",
+        "published_ttft_ms": 612.0,
+        "status": "published"
+      },
+      "ours_over_mia_tp2": 1.7409911524876298,
+      "ours_over_mia_tp3": 1.3746833213495706,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": 290.7455224654342,
+        "all_wave_range": [
+          286.9519667666314,
+          291.2290077763395
+        ],
+        "all_wave_rates": [
+          286.9519667666314,
+          291.2290077763395,
+          290.7455224654342
+        ],
+        "artifact_id": "20261009T2325-sparkdash-1m-p8-c8",
+        "cached_prompt_token_counts": [
+          0,
+          64
+        ],
+        "concurrency_exceeds_lanes": false,
+        "measured_streams": 24,
+        "median_end_to_end_tokens_per_second": 287.4932643772911,
+        "median_stream_ttft_seconds": 0.5678462479263544,
+        "profile": "ours_tp4_p8",
+        "prompt_token_counts": [
+          57,
+          59,
+          60,
+          61,
+          66
+        ],
+        "status": "measured_three_wave_median",
+        "waves": 3
+      },
+      "percent_difference_from_mia_tp2": 74.09911524876298,
+      "percent_difference_from_mia_tp3": 37.46833213495706,
+      "serving_lanes": 8,
+      "workload": "python_code"
+    },
+    {
+      "concurrency": 1,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp2_p8",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp3_p8",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "ours_over_mia_tp2": null,
+      "ours_over_mia_tp3": null,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": null,
+        "measured_streams": 0,
+        "profile": "ours_tp4_p8",
+        "status": "not_measured",
+        "waves": 0
+      },
+      "percent_difference_from_mia_tp2": null,
+      "percent_difference_from_mia_tp3": null,
+      "serving_lanes": 8,
+      "workload": "counting"
+    },
+    {
+      "concurrency": 2,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp2_p8",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp3_p8",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "ours_over_mia_tp2": null,
+      "ours_over_mia_tp3": null,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": null,
+        "measured_streams": 0,
+        "profile": "ours_tp4_p8",
+        "status": "not_measured",
+        "waves": 0
+      },
+      "percent_difference_from_mia_tp2": null,
+      "percent_difference_from_mia_tp3": null,
+      "serving_lanes": 8,
+      "workload": "counting"
+    },
+    {
+      "concurrency": 4,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp2_p8",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp3_p8",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "ours_over_mia_tp2": null,
+      "ours_over_mia_tp3": null,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": null,
+        "measured_streams": 0,
+        "profile": "ours_tp4_p8",
+        "status": "not_measured",
+        "waves": 0
+      },
+      "percent_difference_from_mia_tp2": null,
+      "percent_difference_from_mia_tp3": null,
+      "serving_lanes": 8,
+      "workload": "counting"
+    },
+    {
+      "concurrency": 8,
+      "mia_tp2": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp2_p8",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "mia_tp3": {
+        "aggregate_decode_tokens_per_second": null,
+        "profile": "mia_tp3_p8",
+        "published_ttft_ms": null,
+        "status": "not_published"
+      },
+      "ours_over_mia_tp2": null,
+      "ours_over_mia_tp3": null,
+      "ours_tp4": {
+        "aggregate_decode_tokens_per_second": 537.4867239431126,
+        "all_wave_range": [
+          536.7284018656089,
+          538.6185655673183
+        ],
+        "all_wave_rates": [
+          537.4867239431126,
+          536.7284018656089,
+          538.6185655673183
+        ],
+        "artifact_id": "20261009T2325-sparkdash-1m-p8-c8",
+        "cached_prompt_token_counts": [
+          0
+        ],
+        "concurrency_exceeds_lanes": false,
+        "measured_streams": 24,
+        "median_end_to_end_tokens_per_second": 514.1537933717151,
+        "median_stream_ttft_seconds": 0.28085579723119736,
+        "profile": "ours_tp4_p8",
+        "prompt_token_counts": [
+          34
+        ],
+        "status": "measured_three_wave_median",
+        "waves": 3
+      },
+      "percent_difference_from_mia_tp2": null,
+      "percent_difference_from_mia_tp3": null,
+      "serving_lanes": 8,
+      "workload": "counting"
+    }
+  ],
+  "schema": "spark-ring-public-mia-comparison/v1",
+  "scope": "Comparison to published Mia measurements, not a local TP2/TP3 rerun or causal topology/node-count scaling experiment. Missing results remain null.",
+  "sources": {
+    "mia_readme_sha256": "b1ab5db7722fad9c15e7654593eab5a131539758c621cbf57a725a32bdd50064",
+    "mia_readme_url": "https://github.com/MiaAI-Lab/GLM-5.3-Flash-EXL3-2x-DGX-Sparks-TensorFold/blob/7d42f905388a8d7fa91e2dc9458e0a4a68001540/README.md",
+    "mia_recipe_revision": "7d42f905388a8d7fa91e2dc9458e0a4a68001540",
+    "public_summary": {
+      "path": "sparkdash-summary.json",
+      "sha256": "4164b8eeb010c5f3ce72b3d4019672565bfb6b7864bd485ac52d1417d96afbdf"
+    },
+    "published_mia_actual_harness_revision": null,
+    "sparkdash_prompts_url": "https://github.com/MiaAI-Lab/sparkDash/blob/fab8dadff951d1c8cc1450a657805d8e3ea5c9f6/src/shared/llmPrompts.js",
+    "sparkdash_protocol_revision": "fab8dadff951d1c8cc1450a657805d8e3ea5c9f6",
+    "sparkdash_runner_url": "https://github.com/MiaAI-Lab/sparkDash/blob/fab8dadff951d1c8cc1450a657805d8e3ea5c9f6/server/collectors/DecodeBench.js",
+    "sparkdash_streaming_url": "https://github.com/MiaAI-Lab/sparkDash/blob/fab8dadff951d1c8cc1450a657805d8e3ea5c9f6/server/collectors/LlmStreaming.js"
+  }
+}

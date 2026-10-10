@@ -44,6 +44,11 @@ made for that working deployment and the effects of the portable commands.
   clean pinned RigMark source checkout and benchmark outputs on shared storage.
   Ran the original RigMark client against the existing service. No engine upgrade,
   host package installation or live network change was made during this stage.
+- Prepared the phase-one public release, including attributed Mia/Alex tables,
+  a portable SparkDash client, offline checks and source manifests. Published
+  only the reviewed source/configuration/notice/result tree to its dedicated
+  public GitHub repository. Kept site-specific chronological records, operational
+  receipts, keys, weights, binaries and backups outside that repository.
 
 The complete site-specific chronological ledger, private runtime inventories,
 real addresses/MACs and host trust material remain in the operator's task
@@ -65,6 +70,7 @@ to reproduce the source or the published benchmark protocol.
 | `cluster.py stop` | Archive logs and stop/remove only containers with this recipe's ownership label |
 | `chat.py` | Send inference requests; memory-only client history |
 | `run-rigmark.py` | Send inference/tokenizer requests; write benchmark JSON/log/card and aggregate request-count audit |
+| `run-sparkdash.py` | Send warmup and fixed-length inference requests; write per-wave outputs, timing summaries and request-count audit in a new directory |
 
 Fabric changes are not an atomic transaction across four machines. If an apply
 fails, inspect all per-host audit records and the retained private backup before

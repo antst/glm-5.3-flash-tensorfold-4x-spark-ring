@@ -2,6 +2,11 @@
 
 The full pinned RigMark suite completed on October 9, 2026: all 15 decode requests passed their completion gates, and the receipt contains all 54 expected inference requests. The wrapper observed a server request-count increase of 54 and detected no additional requests. The public receipts are [our unchanged RigMark result](../results/rigmark-result.json) and [Alex's original RigMark result](../results/alex-rigmark-result.json). The pinned strict comparison accepts their client protocol/settings match; this document explains the measurement method and its limits without asserting a performance conclusion.
 
+The [comparison tables](benchmark-comparison.md) report Mia's published TP2/TP3
+SparkDash results beside our TP4 profiles, and Alex's matched RigMark receipt
+beside ours. Published Mia measurements are external references; no local TP2
+or TP3 stack was started for these comparisons.
+
 Our raw receipt reports the runner's Git identity as `unknown`. Git rejected the NFS checkout's ownership: the original wrapper's per-command `safe.directory` exception verified its clean source pin but did not reach upstream RigMark's child Git calls. The separate [source proof](../results/rigmark-source-proof.json) binds the unedited receipt, recorded preflight audit, preserved [executed wrapper](../results/rigmark-runner-executed.py), and all 27 tracked source-file hashes. It distinguishes the recorded preflight check from the independently verified clean source inventory after the run. The future helper supplies the exception only in the child environment; no global Git configuration or upstream source was changed, and this completed benchmark was not repeated.
 
 ## Metrics and workload scope
@@ -22,6 +27,40 @@ output in its thinking-disabled profile.
 | TTFT | First measured event minus request start, using each harness's event rule | Client/server overhead and prefill |
 
 Never compare SparkDash aggregate decode directly with RigMark aggregate concurrency. RigMark's TTFT may be the first reasoning token rather than the first visible answer. Count tokens using final usage, not SSE events: speculative decoding can emit several tokens in one event. Both decode estimates depend on stream pacing and event batching. TensorFold's server `decode_s` is a separate diagnostic clock and must not replace the pinned client formula. Report distributions and the specified summaries, rather than choosing the fastest sample.
+
+## Reproduce the SparkDash workloads
+
+The portable client preserves the prompts, sampling body, fixed-length
+requests, 32-token warmups and client timing formulas used for our recorded
+measurements. Its CLI/provenance checks were adapted for public use afterwards
+and tested offline. Reserve an idle endpoint for a run; the default mode checks
+TensorFold health/profile information before sending requests and audits the
+request-count increase afterwards.
+
+From the recipe root, with `API_BASE_URL` set to the actual serving origin:
+
+```sh
+python3 scripts/run-sparkdash.py \
+  --url "$API_BASE_URL" --output state/sparkdash-p8-run-01 \
+  --tokens 400 --repeats 3 --serving-lanes 8 --context-window 1048576 \
+  --concurrency 1 2 4 8 --workloads prose code structured --plan
+python3 scripts/run-sparkdash.py \
+  --url "$API_BASE_URL" --output state/sparkdash-p8-run-01 \
+  --tokens 400 --repeats 3 --serving-lanes 8 --context-window 1048576 \
+  --concurrency 1 2 4 8 --workloads prose code structured
+```
+
+`structured` means counting in this client; it is unrelated to RigMark's
+50-object JSON workload. Python code uses eight distinct tasks. Each output
+directory must be new. Outputs include the supplied endpoint and any optional
+metadata, so keep them under ignored `state/` until reviewed for publication.
+The helper does not change the service's lane count or context limit.
+
+For a separate P4 service, record `--serving-lanes 4`; this flag alone does not
+reconfigure an existing P8 service. C8 on P4 tests queued clients sharing four
+lanes. A C1 probe is one active request on the recorded profile, not a service
+configured with one lane. The [comparison](benchmark-comparison.md) retains
+those distinctions and marks measurements that were not performed.
 
 ## Pinned Alex comparison
 

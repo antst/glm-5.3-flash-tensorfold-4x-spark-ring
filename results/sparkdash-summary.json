@@ -174,7 +174,7 @@
     "20261009T2328-sparkdash-p8-single-check": "a89bd73ef3d909d41f04ce8fdf789022f2e41672d1652c02f19315a02a973ddc"
   },
   "limits": [
-    "Published Mia TP2 uses2200MHz cap; TP3 per-boot cap unverified; ours clocks/power unchanged",
+    "Mia's main TP2 P4 table states a 2200 MHz clock cap; separate TP2 P8 and TP3 per-boot caps are unverified. Our clocks/power configuration was unchanged.",
     "Original Mia raw run cap unavailable;400 is harnessdefault",
     "Current native1M admission tested with26333tokeninput+32768reply allowance, actualshortreply; full1Mprompt/eightfullwindows untested",
     "Sharedpool4569088tokens; not8separate1M allocations",

@@ -13,40 +13,52 @@
       "sha256": "3e0b06f481a7947a57775888bda2a81f5944a04fff66fce477c147e9a08b5132"
     },
     "CREDITS.md": {
-      "bytes": 3108,
-      "sha256": "7453b46cd1e4b037d7d5580b5aaf9576973e12f53daa267c0c31ae292293cc79"
+      "bytes": 3783,
+      "sha256": "0eefdbe07fb69d05902250746fe1801b5899d43b40927edc9eec97bb8bf1aec7"
     },
     "LICENSE": {
       "bytes": 1076,
       "sha256": "3b42432f52e018d9947f3c7276c3a5754279b8bb9a308b7dec064c2b808d44eb"
     },
     "README.md": {
-      "bytes": 12953,
-      "sha256": "5717f77d6cb6c6f5f64d6b3dddb7ac55e02b2b032ac6ba40b17ea4d1ef7deb49"
+      "bytes": 14982,
+      "sha256": "5e0a70afa4d07a3af741e7e7111c633d71a72cf73a484b2373d750e490bf5475"
     },
     "config.example.json": {
       "bytes": 6112,
       "sha256": "482ff4a86335f1baac75eddf4b0e8108f196dfc5eb9a4134f57c7085adf3c647"
     },
+    "docs/benchmark-comparison.md": {
+      "bytes": 11148,
+      "sha256": "75948c29663557a2edf95a87fb4f7a2bb2a9b9b112c8dfc6738b8d62721b955a"
+    },
     "docs/benchmark-method.md": {
-      "bytes": 12055,
-      "sha256": "5d72c6e7dc28a05014e8167580818edd82f9895a94038f8a126a4d7e02f4addf"
+      "bytes": 14102,
+      "sha256": "1cc6a0898c4a5d75029cbdffa5f47e0b2b355f00ed09198fe03a3872754b13f5"
+    },
+    "docs/phase-one.md": {
+      "bytes": 4697,
+      "sha256": "0f13f2c377742c81cbb1eff0fb445bede78c75ba5aaf4fcbed61de1541054c01"
     },
     "docs/system-changes.md": {
-      "bytes": 6640,
-      "sha256": "ac67b2203781b7597cec5d06232b02596c12ce35afd7839c7b08cedf783c20ee"
+      "bytes": 7187,
+      "sha256": "62958d47b899bef25a5a56b4332a0b118e60cb1895bc0cd5eb20deb2539b0dd1"
     },
     "metadata.example.json": {
       "bytes": 1913,
       "sha256": "896f46970ecae035234ca2b7bb5f7c7145471b7c14ea4a99a5aedb1b06f6a3cc"
     },
     "provenance.json": {
-      "bytes": 1870,
-      "sha256": "3e09c4ad427a0d812c2f80d333d9ee2dc8dc9d901d223661c7f463b41fdd9368"
+      "bytes": 2061,
+      "sha256": "486c3bd87cbc0acc93bc9770c4082fb7915176a1fcdd195e2788054ff9ded40f"
     },
     "results/alex-rigmark-result.json": {
       "bytes": 138289,
       "sha256": "7f9c9cc1f617f5e183950127f1e3b716edec4dc23c731876366fde64dea89b46"
+    },
+    "results/mia-comparison.json": {
+      "bytes": 38851,
+      "sha256": "acc8f0225ae83ab87e0e1c2e3c6e94cf4a8b31f6e270a7a9e7a9ca9af1d04e32"
     },
     "results/rigmark-comparison.card.txt": {
       "bytes": 3444,
@@ -81,8 +93,8 @@
       "sha256": "a22e47fd6accaf3b16385fcdef449524eb6bb88145debf9f8525640fb2dc2872"
     },
     "results/sparkdash-summary.json": {
-      "bytes": 7259,
-      "sha256": "4164b8eeb010c5f3ce72b3d4019672565bfb6b7864bd485ac52d1417d96afbdf"
+      "bytes": 7320,
+      "sha256": "72e0b82226e540201d3489b7618c1194c216dfaf4d046fdc690fbd41c0428926"
     },
     "scripts/build-nccl.sh": {
       "bytes": 6965,
@@ -97,8 +109,8 @@
       "sha256": "0e9bb3ced83443901e61f608e82683dd175509a6b32d473123f11fe2d46b8cd7"
     },
     "scripts/check-public.py": {
-      "bytes": 3260,
-      "sha256": "c7c2c11fa18375b1049f8f4544663a8963c45e86c99935475f4fd5310eeb7ed6"
+      "bytes": 3812,
+      "sha256": "fb35b80576742413d99e8b239af62766ed9342416d8d8f0a32f7b08b779665ae"
     },
     "scripts/cluster.py": {
       "bytes": 21068,
@@ -128,6 +140,10 @@
       "bytes": 5318,
       "sha256": "326efc308b075926fcc9dbd89ba12d6d6b3f34a83a51a27a31c792936d629eb1"
     },
+    "scripts/run-sparkdash.py": {
+      "bytes": 24659,
+      "sha256": "cb00c9f2f47cefa23140f43be61affd9bf4ec6e1528669d2160b682346b754e2"
+    },
     "scripts/runtime.py": {
       "bytes": 1731,
       "sha256": "052fd58317f77b519894684872d97ae76c3cad61920a741300228f8d879f3ca5"
@@ -135,6 +151,10 @@
     "tests/test_config.py": {
       "bytes": 11867,
       "sha256": "f92225770abb7f6f3fa3b461caa9e31d8079e6d97686a53097afbc451554b495"
+    },
+    "tests/test_sparkdash.py": {
+      "bytes": 9287,
+      "sha256": "a8d3ddc6d6823813cf210d43382d97c48cdf54c8848868068853893b3b66efac"
     },
     "third_party/nccl/LICENSE.txt": {
       "bytes": 13261,
@@ -147,6 +167,18 @@
     "third_party/rigmark/LICENSE": {
       "bytes": 1084,
       "sha256": "19058b602fc9af61d619420a322be1deeb52c4a2da78a6ace1120c87a5e0b044"
+    },
+    "third_party/sparkdash/LICENSE": {
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "third_party/sparkdash/LICENSE-MIT": {
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685"
+    },
+    "third_party/sparkdash/NOTICE": {
+      "bytes": 788,
+      "sha256": "1bdd74e322165901d937f43a144a19c627a003c974d71b07d9460e98273dbf9e"
     },
     "third_party/sparkring/LICENSE": {
       "bytes": 11358,

@@ -45,7 +45,10 @@ def main():
     required = ['README.md', 'LICENSE', 'CREDITS.md', 'config.example.json', 'provenance.json',
                 'scripts/common.py', 'scripts/cluster.py', 'scripts/runtime.py', 'scripts/fabric.py',
                 'scripts/qualify.py', 'scripts/build-nccl.sh', 'scripts/download-models.py',
-                'scripts/chat.py', 'scripts/run-rigmark.py', 'docs/benchmark-method.md',
+                'scripts/chat.py', 'scripts/run-rigmark.py', 'scripts/run-sparkdash.py',
+                'docs/benchmark-method.md', 'docs/benchmark-comparison.md', 'docs/phase-one.md',
+                'results/mia-comparison.json', 'third_party/sparkdash/LICENSE',
+                'third_party/sparkdash/LICENSE-MIT', 'third_party/sparkdash/NOTICE',
                 'results/rigmark-result.json', 'results/alex-rigmark-result.json']
     for relative in required:
         if relative not in manifest:
@@ -53,11 +56,15 @@ def main():
     patch = ROOT / 'third_party/sparkring/nccl-2.30.7-dual-pci-domain.patch'
     if hashlib.sha256(patch.read_bytes()).hexdigest() != json.loads((ROOT / 'provenance.json').read_text())['nccl_patch_sha256']:
         raise RuntimeError('Pinned NCCL patch differs')
+    receipt = {'schema': 'public-recipe-files/v1', 'files': manifest}
+    manifest_path = ROOT / 'release-manifest.json'
     if args.write_manifest:
-        (ROOT / 'release-manifest.json').write_text(json.dumps({'schema': 'public-recipe-files/v1',
-                     'files': manifest}, indent=2, sort_keys=True) + '\n')
+        manifest_path.write_text(json.dumps(receipt, indent=2, sort_keys=True) + '\n')
+    elif json.loads(manifest_path.read_text()) != receipt:
+        raise RuntimeError('Release file manifest differs; review changes before regenerating it')
     print(json.dumps({'passed': True, 'files': len(manifest),
-                      'checks': ['Python AST', 'Bash syntax', 'JSON parse', 'private-data scan', 'required files', 'patch hash']}))
+                      'checks': ['Python AST', 'Bash syntax', 'JSON parse', 'private-data scan', 'required files', 'patch hash',
+                                 'manifest written' if args.write_manifest else 'manifest hashes']}))
 
 
 if __name__ == '__main__':

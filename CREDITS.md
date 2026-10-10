@@ -2,7 +2,7 @@
 
 This repository contains orchestration and documentation for a tested four-Spark
 TensorFold deployment. The orchestration is MIT licensed except files carrying an Apache-2.0 SPDX
-header (the native builder and fabric/qualification helpers); third-party material
+header (the native builder, fabric/qualification helpers and SparkDash client); third-party material
 retains its original licence. It contains no model weights, container layers,
 private keys, host trust files, private network backups, or copied TensorFold
 engine sources.
@@ -37,6 +37,15 @@ repositories; those reference paths are not bundled runtime dependencies here.
   [Source](https://github.com/alexellis/rigmark/tree/d8353e93b274e8d880ab14a5df2a55c87d7bee16).
   Benchmark baseline receipts and corresponding MIT licence are retained under
   `results/` and `third_party/rigmark/`. The benchmark source is fetched separately.
+- **MiaAI-Lab / SparkDash** supplies the prose/counting/Python benchmark prompts
+  and client decode timing definitions at commit
+  `fab8dadff951d1c8cc1450a657805d8e3ea5c9f6`.
+  [Source](https://github.com/MiaAI-Lab/sparkDash/tree/fab8dadff951d1c8cc1450a657805d8e3ea5c9f6).
+  The portable SparkDash client adapts the harness used for our measurements;
+  it is not a copy of the dashboard. The source is Apache-2.0 from v2 onward,
+  with the MIT licence retained for its legacy code. Both licence texts and
+  NOTICE are retained under `third_party/sparkdash/`. Mia's published
+  measurements are attributed in [the comparison](docs/benchmark-comparison.md).
 - **Mia-AiLab** provides the EXL3 checkpoint; **incoai** provides DFlash2.
   Download immutable model revisions listed in `provenance.json`; their upstream
   terms apply. Weights are not redistributed here. DFlash2 is CC BY-NC-ND 4.0
